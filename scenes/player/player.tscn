@@ -67,7 +67,7 @@ spit_scene = ExtResource("2_gmlin")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1172210751]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_lo2sf")
-animation = &"left_move"
+animation = &"right_move"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1838874130]

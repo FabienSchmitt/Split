@@ -58,7 +58,4 @@ func update_animation(direction: float) -> void:
 
 func change_direction(direction: float) -> void:
 	player_facing_direction = direction
-	if player_facing_direction < 0:
-		animated_sprite_2d.flip_h = true
-	elif player_facing_direction > 0:
-		animated_sprite_2d.flip_h = false
+	animated_sprite_2d.flip_h = false
