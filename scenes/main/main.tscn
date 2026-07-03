@@ -29,9 +29,21 @@ position = Vector2(-566, 0)
 position = Vector2(-9.5, 5)
 shape = SubResource("RectangleShape2D_lo2sf")
 
+[node name="ColorRect" type="ColorRect" parent="WallLeft" unique_id=812261587]
+offset_left = -12.0
+offset_top = -327.0
+offset_right = -7.0
+offset_bottom = 327.0
+
 [node name="WallRight" type="Area2D" parent="." unique_id=1136511002]
 position = Vector2(583, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight" unique_id=1199834254]
 position = Vector2(-9.5, 5)
 shape = SubResource("RectangleShape2D_lo2sf")
+
+[node name="ColorRect" type="ColorRect" parent="WallRight" unique_id=706923681]
+offset_left = -12.0
+offset_top = -327.0
+offset_right = -7.0
+offset_bottom = 327.0

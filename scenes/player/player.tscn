@@ -21,7 +21,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
 radius = 19.94
 
-[node name="Player" type="Area2D" unique_id=1871352174]
+[node name="Player" type="CharacterBody2D" unique_id=1880450837]
 script = ExtResource("1_dovo2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2078184630]
@@ -35,7 +35,9 @@ animation = &"idle"
 shape = SubResource("CircleShape2D_dovo2")
 
 [node name="RayCast2D_Right" type="RayCast2D" parent="." unique_id=829360666]
-target_position = Vector2(60, 0)
+target_position = Vector2(50, 0)
+collide_with_areas = true
 
 [node name="RayCast2D_Left" type="RayCast2D" parent="." unique_id=655253548]
-target_position = Vector2(-60, 0)
+target_position = Vector2(-50, 0)
+collide_with_areas = true
