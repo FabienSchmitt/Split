@@ -23,6 +23,13 @@ boot_splash/minimum_display_time=2000
 
 buses/default_bus_layout="uid://difhmgae27kln"
 
+[autoload]
+
+EventBus="*uid://cwtfgl8lkubeq"
+GameManager="*uid://bhsbduy3vasoc"
+AudioManager="*uid://isthlvp6lkmi"
+SaveManager="*uid://d4kkb7hmket4o"
+
 [input]
 
 ui_accept={

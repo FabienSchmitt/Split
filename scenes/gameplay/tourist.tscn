@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://c2biicfy76idi"]
 
+[ext_resource type="Script" uid="uid://dy6wqg5kbe0gl" path="res://scripts/gameplay/tourist.gd" id="1_uge42"]
 [ext_resource type="Texture2D" uid="uid://1c3q0lw65krl" path="res://icon.svg" id="1_w7gwi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ovnp"]
 size = Vector2(116, 119)
 
 [node name="Tourist" type="CharacterBody2D" unique_id=659264280]
+script = ExtResource("1_uge42")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1510157613]
 
