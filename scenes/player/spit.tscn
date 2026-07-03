@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://bf3e0s1qcjffn"]
 
 [ext_resource type="Script" uid="uid://bpbdkw6bk7sc6" path="res://scripts/spit.gd" id="1_5g7ut"]
-[ext_resource type="Texture2D" uid="uid://dqt87iuvqnro8" path="res://assets/sprites/fireball_01.png" id="1_tal6h"]
+[ext_resource type="Texture2D" uid="uid://b8u0m7r4vakgi" path="res://assets/sprites/gros_glaire_1.png" id="2_5g7ut"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5g7ut"]
-atlas = ExtResource("1_tal6h")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd6mq"]
+atlas = ExtResource("2_5g7ut")
 region = Rect2(0, 0, 120, 66)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2tsbi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5g7ut")
+"texture": SubResource("AtlasTexture_dd6mq")
 }],
 "loop": 1,
 "name": &"spit",
