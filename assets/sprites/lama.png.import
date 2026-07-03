@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm7xkrbngyrfx"
-path="res://.godot/imported/lama.jpg-5ae8ac2a0ddc02dfc1e010c1024f14aa.ctex"
+uid="uid://b3jgqitc2sqbp"
+path="res://.godot/imported/lama.png-8a73f3196ddbca1533b72fea68e191eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/lama.jpg"
-dest_files=["res://.godot/imported/lama.jpg-5ae8ac2a0ddc02dfc1e010c1024f14aa.ctex"]
+source_file="res://assets/sprites/lama.png"
+dest_files=["res://.godot/imported/lama.png-8a73f3196ddbca1533b72fea68e191eb.ctex"]
 
 [params]
 
