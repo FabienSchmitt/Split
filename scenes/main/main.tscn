@@ -9,10 +9,13 @@ size = Vector2(7, 662)
 
 [node name="Main scene" type="Node2D" unique_id=1889810806]
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=830249753]
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=215720076]
 texture = ExtResource("1_k2fmo")
 
 [node name="Player" parent="." unique_id=848951361 instance=ExtResource("1_iuonh")]
+position = Vector2(0, 210)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=543200367]
 
@@ -23,7 +26,7 @@ offset_right = 1.0
 offset_bottom = -6.0
 
 [node name="WallLeft" type="Area2D" parent="." unique_id=1970037877]
-position = Vector2(-566, 0)
+position = Vector2(-948, 212)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft" unique_id=761472731]
 position = Vector2(-9.5, 5)
@@ -36,7 +39,7 @@ offset_right = -7.0
 offset_bottom = 327.0
 
 [node name="WallRight" type="Area2D" parent="." unique_id=1136511002]
-position = Vector2(583, 0)
+position = Vector2(968, 212)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight" unique_id=1199834254]
 position = Vector2(-9.5, 5)

@@ -26,8 +26,6 @@ radius = 19.94
 script = ExtResource("1_dovo2")
 spit_scene = ExtResource("2_gmlin")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2078184630]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1172210751]
 position = Vector2(-2, 252)
 scale = Vector2(3, 3)
