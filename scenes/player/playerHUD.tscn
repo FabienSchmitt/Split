@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://kfklb8l882ft"]
 
 [ext_resource type="Texture2D" uid="uid://b3jgqitc2sqbp" path="res://assets/sprites/lama.png" id="1_plvqf"]
+[ext_resource type="Script" uid="uid://df05i384x6qfq" path="res://scripts/player_hud.gd" id="1_y28gi"]
 
 [node name="PlayerHud" type="CanvasLayer" unique_id=1671160535]
+script = ExtResource("1_y28gi")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1068492009]
 anchors_preset = 1
