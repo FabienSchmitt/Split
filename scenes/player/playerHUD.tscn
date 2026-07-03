@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://kfklb8l882ft"]
+
+[ext_resource type="Texture2D" uid="uid://b3jgqitc2sqbp" path="res://assets/sprites/lama.png" id="1_plvqf"]
+
+[node name="PlayerHud" type="CanvasLayer" unique_id=1671160535]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1068492009]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -127.0
+offset_bottom = 89.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=137841027]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=992862793]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=189458439]
+layout_mode = 2
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/GridContainer" unique_id=1931976018]
+layout_mode = 2
+texture = ExtResource("1_plvqf")
+
+[node name="Score" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/GridContainer" unique_id=1066083668]
+layout_mode = 2
+text = "Score: XX"
