@@ -1,11 +1,23 @@
 [gd_scene format=3 uid="uid://cbsfgudr4nhn7"]
 
 [ext_resource type="PackedScene" uid="uid://xks1oo2wbd47" path="res://scenes/tourist_spawn_point.tscn" id="1_pr087"]
+[ext_resource type="PackedScene" uid="uid://buct3rttgl68d" path="res://scenes/Tests/platform_test.tscn" id="2_nthgn"]
 
 [node name="TestTouristScene" type="Node2D" unique_id=1926719705]
 
 [node name="TouristSpawnPoint" parent="." unique_id=1397573386 instance=ExtResource("1_pr087")]
-position = Vector2(870, 456)
+position = Vector2(877, 497)
+tourist_speed = 50.0
 
 [node name="TouristSpawnPoint2" parent="." unique_id=352060827 instance=ExtResource("1_pr087")]
-position = Vector2(320, 257)
+position = Vector2(173, 84)
+tourist_scale = Vector2(0.7, 0.7)
+tourist_speed = 100.0
+
+[node name="PlatformTest" parent="." unique_id=2136340965 instance=ExtResource("2_nthgn")]
+position = Vector2(335, 146)
+scale = Vector2(0.5, 0.5)
+
+[node name="PlatformTest2" parent="." unique_id=233273559 instance=ExtResource("2_nthgn")]
+position = Vector2(937, 566)
+scale = Vector2(0.3, 0.3)
