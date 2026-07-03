@@ -1,24 +1,33 @@
 [gd_scene format=3 uid="uid://d2xjipgen38g2"]
 
-[ext_resource type="Texture2D" uid="uid://1c3q0lw65krl" path="res://icon.svg" id="1_iuonh"]
+[ext_resource type="PackedScene" uid="uid://dlsjbkug74opl" path="res://scenes/player/player.tscn" id="1_iuonh"]
 [ext_resource type="PackedScene" uid="uid://cbkbhmpeop5u5" path="res://scenes/ui/ui_manager.tscn" id="2_iuonh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuonh"]
-size = Vector2(117, 117)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo2sf"]
+size = Vector2(7, 662)
 
 [node name="Main scene" type="Node2D" unique_id=1889810806]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1689391839]
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=211745710]
-texture = ExtResource("1_iuonh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=465734456]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_iuonh")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=290206311]
+[node name="Player" parent="." unique_id=848951361 instance=ExtResource("1_iuonh")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=543200367]
 
 [node name="ui_manager" parent="CanvasLayer" unique_id=1183294465 instance=ExtResource("2_iuonh")]
+offset_left = 1.0
+offset_top = -6.0
+offset_right = 1.0
+offset_bottom = -6.0
+
+[node name="WallLeft" type="Area2D" parent="." unique_id=1970037877]
+position = Vector2(-566, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft" unique_id=761472731]
+position = Vector2(-9.5, 5)
+shape = SubResource("RectangleShape2D_lo2sf")
+
+[node name="WallRight" type="Area2D" parent="." unique_id=1136511002]
+position = Vector2(583, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight" unique_id=1199834254]
+position = Vector2(-9.5, 5)
+shape = SubResource("RectangleShape2D_lo2sf")

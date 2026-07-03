@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dlsjbkug74opl"]
+
+[ext_resource type="Script" uid="uid://dssnisjsncl6b" path="res://scripts/player.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://bm7xkrbngyrfx" path="res://assets/sprites/lama.jpg" id="2_dovo2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(0, 0, 7973, 7974)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lo2sf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmlin")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
+radius = 19.94
+
+[node name="Player" type="Area2D" unique_id=1871352174]
+script = ExtResource("1_dovo2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2078184630]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1172210751]
+scale = Vector2(0.01, 0.01)
+sprite_frames = SubResource("SpriteFrames_lo2sf")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1838874130]
+shape = SubResource("CircleShape2D_dovo2")
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="." unique_id=829360666]
+target_position = Vector2(60, 0)
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="." unique_id=655253548]
+target_position = Vector2(60, 0)
