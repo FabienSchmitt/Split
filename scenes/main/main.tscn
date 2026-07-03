@@ -18,7 +18,7 @@ size = Vector2(1939, 11)
 texture = ExtResource("1_k2fmo")
 
 [node name="Player" parent="." unique_id=848951361 instance=ExtResource("1_iuonh")]
-position = Vector2(0, 435)
+position = Vector2(0, 462)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=543200367]
 
