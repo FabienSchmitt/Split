@@ -14,10 +14,9 @@ func _ready() -> void:
 
 func set_direction(direction: Vector2) -> void:
 	shooting_direction = direction.normalized()
-	if shooting_direction.x < 0:
-		animated_sprite_2d.flip_h = true
-	elif shooting_direction.x > 0:
-		animated_sprite_2d.flip_h = false
+	animated_sprite_2d.rotation = shooting_direction.angle()
+	animated_sprite_2d.flip_h = false
+	animated_sprite_2d.flip_v = false
 
 func _physics_process(delta: float) -> void:
 	if spit_in_motion:
