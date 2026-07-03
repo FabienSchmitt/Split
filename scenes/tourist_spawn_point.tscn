@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://xks1oo2wbd47"]
+
+[ext_resource type="Script" uid="uid://dbm58nxnt7woj" path="res://scripts/gameplay/tourist_spawn_point.gd" id="1_aghea"]
+
+[node name="TouristSpawnPoint" type="Node2D" unique_id=1397573386]
+script = ExtResource("1_aghea")
+
+[node name="PopTimer" type="Timer" parent="." unique_id=925535427]
+unique_name_in_owner = true
+wait_time = 5.0
+autostart = true
