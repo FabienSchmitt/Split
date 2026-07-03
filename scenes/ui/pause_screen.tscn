@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://c676g8ttgn28a"]
+
+[ext_resource type="Shader" uid="uid://brn7hygid8jis" path="res://assets/materials/blur.gdshader" id="1_milqs"]
+[ext_resource type="Script" uid="uid://beysbtvosp5b5" path="res://scripts/ui/pause_screen.gd" id="1_xceqw"]
+[ext_resource type="Theme" uid="uid://c4am47i4a7lfa" path="res://resources/themes/main.theme" id="2_fvuwu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fvuwu"]
+shader = ExtResource("1_milqs")
+shader_parameter/blur_amount = 0.0
+shader_parameter/tint = Color(0, 0, 0, 1)
+shader_parameter/tint_strength = 0.0
+shader_parameter/saturation = 1.0
+
+[node name="PauseScreen" type="Control" unique_id=1586455800]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xceqw")
+menu_opened_amount = 0.614
+animation_duration = 0.1
+
+[node name="BlurColorRect" type="ColorRect" parent="." unique_id=19490991]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_fvuwu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UIPanelContainer" type="PanelContainer" parent="." unique_id=1121223649]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.614)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -363.0
+offset_top = -211.0
+offset_right = 363.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fvuwu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIPanelContainer" unique_id=1510084760]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UIPanelContainer/VBoxContainer" unique_id=1932850534]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme = ExtResource("2_fvuwu")
+theme_type_variation = &"Title"
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="UIPanelContainer/VBoxContainer" unique_id=85123403]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIPanelContainer/VBoxContainer/CenterContainer" unique_id=1407430973]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer" unique_id=173665014]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_fvuwu")
+theme_type_variation = &"FlatButton"
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer" unique_id=2047422337]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_fvuwu")
+theme_type_variation = &"FlatButton"
+text = "Restart"
+
+[node name="SettingsButton" type="Button" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer" unique_id=568837274]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_fvuwu")
+theme_type_variation = &"FlatButton"
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer" unique_id=1604380667]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_fvuwu")
+theme_type_variation = &"FlatButton"
+text = "Quit"

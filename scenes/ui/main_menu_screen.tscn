@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://ohqbq61cxokq"]
+
+[ext_resource type="Script" uid="uid://cqrrksq3v7gjc" path="res://scripts/ui/main_menu_screen.gd" id="1_ktwj6"]
+[ext_resource type="Theme" uid="uid://c4am47i4a7lfa" path="res://resources/themes/main.theme" id="1_qjoqk"]
+[ext_resource type="PackedScene" uid="uid://cgwfikravuglo" path="res://scenes/ui/settings_screen.tscn" id="3_dxph1"]
+
+[node name="MainMenuScreen" type="Control" unique_id=612562667]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ktwj6")
+
+[node name="MainMenuRoot" type="Control" parent="." unique_id=2095860205]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainMenuRoot" unique_id=1440433983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.881864, 0.6180314, 0.91971976, 0.717)
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenuRoot" unique_id=199213823]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.5
+offset_top = -144.5
+offset_right = 166.5
+offset_bottom = 144.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qjoqk")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuRoot/PanelContainer" unique_id=1301779424]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenuRoot/PanelContainer/VBoxContainer" unique_id=1518207166]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme = ExtResource("1_qjoqk")
+theme_type_variation = &"Title"
+text = "MY GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenuRoot/PanelContainer/VBoxContainer" unique_id=295500152]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuRoot/PanelContainer/VBoxContainer/CenterContainer" unique_id=62835670]
+layout_mode = 2
+
+[node name="NewGameButton" type="Button" parent="MainMenuRoot/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer" unique_id=236036539]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_qjoqk")
+theme_type_variation = &"FlatButton"
+text = "New Game"
+
+[node name="SettingsButton" type="Button" parent="MainMenuRoot/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer" unique_id=1517724205]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_qjoqk")
+theme_type_variation = &"FlatButton"
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="MainMenuRoot/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer" unique_id=908683078]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_qjoqk")
+theme_type_variation = &"FlatButton"
+text = "Quit Game"
+
+[node name="SettingsScreen" parent="." unique_id=1440927587 instance=ExtResource("3_dxph1")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1

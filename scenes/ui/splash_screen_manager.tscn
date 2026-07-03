@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cx18igvnn6141"]
+
+[ext_resource type="Texture2D" uid="uid://uqeb241uab1" path="res://resources/Logo_DDDD_transparent.png" id="1_1gdp5"]
+[ext_resource type="Script" uid="uid://bdwa8rkwq2c65" path="res://scripts/ui/splash_screen_manager.gd" id="1_bfhye"]
+[ext_resource type="PackedScene" uid="uid://ohqbq61cxokq" path="res://scenes/ui/main_menu_screen.tscn" id="2_bfhye"]
+
+[node name="SplashScreenManager" type="Control" unique_id=1749314279 node_paths=PackedStringArray("splash_screen")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bfhye")
+load_scene = ExtResource("2_bfhye")
+splash_screen = NodePath("CenterContainer/TextureRect")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=169656458]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=695990000]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=1748790809]
+custom_minimum_size = Vector2(700, 700)
+layout_mode = 2
+texture = ExtResource("1_1gdp5")
+expand_mode = 1
+stretch_mode = 4

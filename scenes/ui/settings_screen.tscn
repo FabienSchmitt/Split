@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://cgwfikravuglo"]
+
+[ext_resource type="Script" uid="uid://yi3ovg4aygqc" path="res://scripts/ui/settings_screen.gd" id="1_5op3j"]
+[ext_resource type="Shader" uid="uid://brn7hygid8jis" path="res://assets/materials/blur.gdshader" id="2_n5rhh"]
+[ext_resource type="Theme" uid="uid://c4am47i4a7lfa" path="res://resources/themes/main.theme" id="3_o0pos"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dyuo2"]
+shader = ExtResource("2_n5rhh")
+shader_parameter/blur_amount = 0.0
+shader_parameter/tint = Color(0, 0, 0, 1)
+shader_parameter/tint_strength = 0.0
+shader_parameter/saturation = 1.0
+
+[node name="SettingsScreen" type="Control" unique_id=1440927587]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5op3j")
+
+[node name="BlurColorRect" type="ColorRect" parent="." unique_id=896913630]
+material = SubResource("ShaderMaterial_dyuo2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0860224, 1.0023613)
+
+[node name="UIPanelContainer" type="PanelContainer" parent="." unique_id=1621982217]
+modulate = Color(1, 1, 1, 0.614)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -363.0
+offset_top = -211.0
+offset_right = 363.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_o0pos")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIPanelContainer" unique_id=125044405]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UIPanelContainer/VBoxContainer" unique_id=1557980630]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme = ExtResource("3_o0pos")
+theme_type_variation = &"Title"
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="UIPanelContainer/VBoxContainer" unique_id=87582354]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIPanelContainer/VBoxContainer/CenterContainer" unique_id=1136104839]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer" unique_id=1835296153]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=561286447]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=976254258]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer" unique_id=1756434379]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2" unique_id=186452862]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Sounds"
+
+[node name="SoundsSlider" type="HSlider" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2" unique_id=221850756]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.2
+ticks_on_borders = true
+
+[node name="BackButton" type="Button" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer" unique_id=527918859]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_o0pos")
+theme_type_variation = &"FlatButton"
+text = "Back"
