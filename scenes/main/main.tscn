@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://d2xjipgen38g2"]
 
 [ext_resource type="PackedScene" uid="uid://dlsjbkug74opl" path="res://scenes/player/player.tscn" id="1_iuonh"]
+[ext_resource type="Texture2D" uid="uid://bywn8rp8ya0l5" path="res://resources/background-with-human.png" id="1_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://cbkbhmpeop5u5" path="res://scenes/ui/ui_manager.tscn" id="2_iuonh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo2sf"]
 size = Vector2(7, 662)
 
 [node name="Main scene" type="Node2D" unique_id=1889810806]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=215720076]
+texture = ExtResource("1_k2fmo")
 
 [node name="Player" parent="." unique_id=848951361 instance=ExtResource("1_iuonh")]
 

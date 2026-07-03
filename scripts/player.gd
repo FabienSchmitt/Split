@@ -9,7 +9,7 @@ const SPEED = 60;
 
 var direction = 1;
 
-func _physics_process(delta):
+func _process(delta):
 	if ray_cast_2d_right.is_colliding():
 		direction = -1;
 		animated_sprite_2d.flip_h = true;
