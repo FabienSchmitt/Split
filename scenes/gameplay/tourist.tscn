@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dy6wqg5kbe0gl" path="res://scripts/gameplay/tourist.gd" id="1_uge42"]
 [ext_resource type="Texture2D" uid="uid://1c3q0lw65krl" path="res://icon.svg" id="1_w7gwi"]
+[ext_resource type="PackedScene" uid="uid://cihaxjy0o30fr" path="res://scenes/gameplay/hit_component.tscn" id="3_77lbt"]
+[ext_resource type="PackedScene" uid="uid://n4yiq57nljii" path="res://scenes/gameplay/life_component.tscn" id="4_bf2ew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ovnp"]
 size = Vector2(116, 119)
@@ -31,3 +33,15 @@ unique_name_in_owner = true
 position = Vector2(62, 58)
 target_position = Vector2(-1, 36)
 collision_mask = 2
+
+[node name="HitComponent" parent="." unique_id=1436182159 instance=ExtResource("3_77lbt")]
+unique_name_in_owner = true
+position = Vector2(0, -2)
+
+[node name="CollisionShape2D" parent="HitComponent" index="0" unique_id=1493275032]
+scale = Vector2(5.881829, 5.7625585)
+
+[node name="LifeComponent" parent="." unique_id=811587335 instance=ExtResource("4_bf2ew")]
+unique_name_in_owner = true
+
+[editable path="HitComponent"]

@@ -10,7 +10,7 @@ position = Vector2(877, 497)
 tourist_speed = 50.0
 
 [node name="TouristSpawnPoint2" parent="." unique_id=352060827 instance=ExtResource("1_pr087")]
-position = Vector2(173, 84)
+position = Vector2(173, 82)
 tourist_scale = Vector2(0.7, 0.7)
 tourist_speed = 100.0
 
