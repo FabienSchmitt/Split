@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://dlsjbkug74opl"]
 
 [ext_resource type="Script" uid="uid://dssnisjsncl6b" path="res://scripts/player.gd" id="1_dovo2"]
-[ext_resource type="Texture2D" uid="uid://b3jgqitc2sqbp" path="res://assets/sprites/lama.png" id="2_dovo2"]
 [ext_resource type="PackedScene" uid="uid://bf3e0s1qcjffn" path="res://scenes/player/spit.tscn" id="2_gmlin"]
+[ext_resource type="Texture2D" uid="uid://biqidafrfukg0" path="res://assets/sprites/Capture d'écran 2026-07-03 234955.png" id="3_gmlin"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
-atlas = ExtResource("2_dovo2")
-region = Rect2(0, 0, 31, 69)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvxji"]
+atlas = ExtResource("3_gmlin")
+region = Rect2(0, 0, 363, 479)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lo2sf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gmlin")
+"texture": SubResource("AtlasTexture_lvxji")
 }],
 "loop": 1,
 "name": &"idle",
@@ -27,8 +27,7 @@ script = ExtResource("1_dovo2")
 spit_scene = ExtResource("2_gmlin")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1172210751]
-position = Vector2(-2, 252)
-scale = Vector2(3, 3)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_lo2sf")
 animation = &"idle"
 

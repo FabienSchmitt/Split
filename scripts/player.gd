@@ -16,7 +16,14 @@ func attack() -> void:
 	get_tree().current_scene.add_child(spit)
 	spit.global_position = global_position
 	spit.global_position.y -= 10 #to center it with the player sprite
-	spit.set_direction(player_facing_direction)
+
+	var input_vector := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if input_vector == Vector2.ZERO:
+		input_vector = Vector2(player_facing_direction, 0)
+	else:
+		input_vector = input_vector.normalized()
+
+	spit.set_direction(input_vector)
 	current_spit = spit
 
 func _physics_process(delta: float) -> void:

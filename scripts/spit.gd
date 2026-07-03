@@ -5,23 +5,23 @@ const SPEED = 450.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audiostream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-var shooting_direction: float = 1
+var shooting_direction: Vector2 = Vector2.RIGHT
 var spit_in_motion: bool = true
 
 func _ready() -> void:
 	audiostream_player_2d.play()
 	self.area_entered.connect(_on_area_entered)
 
-func set_direction(direction: float):
-	shooting_direction = direction
-	if shooting_direction < 0:
+func set_direction(direction: Vector2) -> void:
+	shooting_direction = direction.normalized()
+	if shooting_direction.x < 0:
 		animated_sprite_2d.flip_h = true
-	elif shooting_direction > 0:
+	elif shooting_direction.x > 0:
 		animated_sprite_2d.flip_h = false
 
 func _physics_process(delta: float) -> void:
 	if spit_in_motion:
-		position.x += shooting_direction * SPEED * delta
+		position += shooting_direction * SPEED * delta
 
 func destroy() -> void:
 	spit_in_motion = false
