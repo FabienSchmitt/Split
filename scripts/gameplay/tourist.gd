@@ -26,8 +26,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide() 
 
 
-func _has_been_hit() -> void : 
-	EventBus.tourist_has_been_hit.emit(self)
+func _has_been_hit() -> void :
+	print("has been hit")
 	life_component.take_damage()
 
 

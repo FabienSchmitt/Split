@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://d2xjipgen38g2"]
+[gd_scene format=3 uid="uid://co4gsgq04auk1"]
 
-[ext_resource type="PackedScene" uid="uid://dlsjbkug74opl" path="res://scenes/player/player.tscn" id="1_iuonh"]
-[ext_resource type="Texture2D" uid="uid://bywn8rp8ya0l5" path="res://resources/background-with-human.png" id="1_k2fmo"]
-[ext_resource type="PackedScene" uid="uid://cbkbhmpeop5u5" path="res://scenes/ui/ui_manager.tscn" id="2_iuonh"]
+[ext_resource type="Texture2D" uid="uid://bywn8rp8ya0l5" path="res://resources/background-with-human.png" id="1_s67ge"]
+[ext_resource type="PackedScene" uid="uid://dlsjbkug74opl" path="res://scenes/player/player.tscn" id="2_6sny6"]
+[ext_resource type="PackedScene" uid="uid://cbkbhmpeop5u5" path="res://scenes/ui/ui_manager.tscn" id="3_7d3wn"]
+[ext_resource type="PackedScene" uid="uid://cbsfgudr4nhn7" path="res://scenes/Tests/test_tourist_scene.tscn" id="4_e6vto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo2sf"]
 size = Vector2(8, 1081)
@@ -15,17 +16,14 @@ size = Vector2(1939, 11)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=830249753]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=215720076]
-texture = ExtResource("1_k2fmo")
+texture = ExtResource("1_s67ge")
 
-[node name="Player" parent="." unique_id=848951361 instance=ExtResource("1_iuonh")]
-position = Vector2(0, 462)
-
-[node name="Player" parent="Player" unique_id=1880450837 instance=ExtResource("1_iuonh")]
+[node name="Player" parent="." unique_id=848951361 instance=ExtResource("2_6sny6")]
 position = Vector2(0, 462)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=543200367]
 
-[node name="ui_manager" parent="CanvasLayer" unique_id=1183294465 instance=ExtResource("2_iuonh")]
+[node name="ui_manager" parent="CanvasLayer" unique_id=1183294465 instance=ExtResource("3_7d3wn")]
 offset_left = 1.0
 offset_top = -6.0
 offset_right = 1.0
@@ -51,3 +49,6 @@ position = Vector2(0, -538)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=648762603]
 position = Vector2(0.5, -4.5)
 shape = SubResource("RectangleShape2D_3gdql")
+
+[node name="TestTouristScene" parent="." unique_id=1926719705 instance=ExtResource("4_e6vto")]
+position = Vector2(-714, -376)

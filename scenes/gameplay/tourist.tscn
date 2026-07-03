@@ -9,7 +9,8 @@
 size = Vector2(116, 119)
 
 [node name="Tourist" type="CharacterBody2D" unique_id=659264280 groups=["Tourist"]]
-collision_mask = 0
+collision_layer = 8
+collision_mask = 6
 script = ExtResource("1_uge42")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1510157613]
@@ -39,6 +40,7 @@ collision_mask = 2
 [node name="HitComponent" parent="." unique_id=1436182159 instance=ExtResource("3_77lbt")]
 unique_name_in_owner = true
 position = Vector2(2, -67)
+collision_mask = 4
 
 [node name="CollisionShape2D" parent="HitComponent" index="0" unique_id=1493275032]
 scale = Vector2(5.881829, 5.7625585)
