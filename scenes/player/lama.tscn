@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bff3rpmv7j7bf" path="res://assets/sprites/lama-center-left-right.png" id="3_gmlin"]
 [ext_resource type="AudioStream" uid="uid://b75560trmoreg" path="res://assets/sound/lama-walk.mp3" id="4_jjym0"]
 [ext_resource type="Texture2D" uid="uid://catfxpremoqlj" path="res://assets/sprites/progress_bar/pan_flute_progress.png" id="5_5komd"]
+[ext_resource type="Texture2D" uid="uid://dgcx57ddvnq6s" path="res://assets/icons/target.png" id="7_myiiu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flvbj"]
 atlas = ExtResource("3_5komd")
@@ -84,7 +85,7 @@ spit_scene = ExtResource("2_gmlin")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1172210751 groups=["lama"]]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_lo2sf")
-animation = &"die"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1838874130]
@@ -114,3 +115,16 @@ offset_bottom = 29.0
 fill_mode = 1
 texture_progress = ExtResource("5_5komd")
 metadata/_edit_use_anchors_ = true
+
+[node name="Aiming" type="Node2D" parent="." unique_id=939660967]
+
+[node name="AimingLine" type="Line2D" parent="Aiming" unique_id=1264158723]
+visible = false
+points = PackedVector2Array(0, 0, 100, 0)
+width = 2.0
+default_color = Color(1, 0.0627451, 0, 1)
+
+[node name="Target" type="Sprite2D" parent="Aiming" unique_id=225166136]
+position = Vector2(116, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_myiiu")
