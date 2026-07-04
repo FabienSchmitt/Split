@@ -7,9 +7,6 @@ var current_score: int = 0
 var current_life: int = 10
 var score_history: Array[int] = []
 
-func _ready() -> void:
-	EventBus.player_life_gained.connect(add_life)
-
 func reset_game() -> void:
 	reset_score()
 	reset_life()

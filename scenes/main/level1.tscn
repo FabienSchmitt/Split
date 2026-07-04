@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cbkbhmpeop5u5" path="res://scenes/ui/ui_manager.tscn" id="2_iuonh"]
 [ext_resource type="PackedScene" uid="uid://xks1oo2wbd47" path="res://scenes/tourist_spawn_point.tscn" id="3_g61pb"]
 [ext_resource type="PackedScene" uid="uid://kfklb8l882ft" path="res://scenes/player/playerHUD.tscn" id="4_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://cuf20mwjbsltj" path="res://scenes/player/cold_coffee.tscn" id="5_u0c75"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tourist_bottom_left"]
 size = Vector2(509, 11.5)
@@ -161,6 +162,9 @@ position = Vector2(0, -538)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/WallUp" unique_id=648762603]
 position = Vector2(0.5, -4.5)
 shape = SubResource("RectangleShape2D_3gdql")
+
+[node name="ColdCoffee" parent="Environment" unique_id=184626894 instance=ExtResource("5_u0c75")]
+position = Vector2(415, 482)
 
 [node name="UI" type="Node" parent="." unique_id=1742402689]
 

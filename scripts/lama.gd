@@ -10,7 +10,6 @@ const SPEED = 450;
 @onready var ray_cast_2d_left: RayCast2D = $RayCast2D_Left
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var walking_stream_player: AudioStreamPlayer2D = %WalkingSound2D
-@onready var crachat_stream_player: AudioStreamPlayer2D = %CrachatSound2D
 @onready var crachat_progress_bar: TextureProgressBar = %TextureProgressBar
 
 
@@ -59,11 +58,15 @@ func _physics_process(delta: float) -> void:
 		change_direction(current_direction)
 
 	if ray_cast_2d_right.is_colliding():
-		if current_direction > 0:
-			current_direction = 0
+		var collider = ray_cast_2d_right.get_collider()
+		if collider != null and collider.is_in_group("Wall"):
+			if current_direction > 0:
+				current_direction = 0
 	if ray_cast_2d_left.is_colliding():
-		if current_direction < 0:
-			current_direction = 0
+		var collider = ray_cast_2d_left.get_collider()
+		if collider != null and collider.is_in_group("Wall"):
+			if current_direction < 0:
+				current_direction = 0
 
 	if current_direction:
 		velocity.x = current_direction * SPEED
