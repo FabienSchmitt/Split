@@ -40,7 +40,6 @@ texture = ExtResource("1_k2fmo")
 
 [node name="Player" parent="." unique_id=848951361 instance=ExtResource("1_iuonh")]
 position = Vector2(0, 462)
-is_multiplayer = true
 
 [node name="CoffeeSpawner" parent="." unique_id=2033986346 instance=ExtResource("4_u0c75")]
 

@@ -34,6 +34,7 @@ func attack(spit_direction: Vector2) -> void:
 		return
 
 	var spit = spit_scene.instantiate()
+	spit.spit_force = crachat_progress
 	get_tree().current_scene.add_child(spit)
 	spit.global_position = global_position
 	spit.global_position.y -= 10 #to center it with the player sprite
@@ -46,7 +47,8 @@ func _process(delta: float) -> void:
 		return
 
 	if crachat_in_progress:
-		crachat_progress += delta * crachat_charging_speed 
+		crachat_progress = clamp(crachat_progress + delta * crachat_charging_speed, 0, 100)
+	
 
 	crachat_progress_bar.value = crachat_progress
 
@@ -108,7 +110,6 @@ func reset_charging() -> void:
 
 func die() -> void:
 	animated_sprite_2d.play("die")
-
 
 func set_aiming_direction(direction: Vector2) -> void:
 	if direction == Vector2.ZERO:

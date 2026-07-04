@@ -1,3 +1,4 @@
+class_name Spit
 extends Area2D
 
 const SPEED = 450.0
@@ -8,6 +9,7 @@ const SPEED = 450.0
 
 var shooting_direction: Vector2 = Vector2.RIGHT
 var spit_in_motion: bool = true
+var spit_force: int = 1
 
 func _ready() -> void:
 	spit_sound_2d.play()

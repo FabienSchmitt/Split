@@ -131,9 +131,10 @@ func enter_state_die():
 func state_die():
 	pass
 
-func _has_been_hit() -> void :
+func _has_been_hit(force: int) -> void :
 	print("has been hit")
-	var score = 10
+	var score = 10 * force
+
 	EventBus.player_score_added.emit(score)
 
 	var score_display = score_display_scene.instantiate()
