@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cbkbhmpeop5u5" path="res://scenes/ui/ui_manager.tscn" id="3_7d3wn"]
 [ext_resource type="PackedScene" uid="uid://cbsfgudr4nhn7" path="res://scenes/tests/test_tourist_scene.tscn" id="4_e6vto"]
 [ext_resource type="PackedScene" uid="uid://kfklb8l882ft" path="res://scenes/player/playerHUD.tscn" id="5_qmqke"]
+[ext_resource type="PackedScene" uid="uid://crkp1mcjjnj04" path="res://scenes/ui/multiplayer_hud.tscn" id="6_2k25j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo2sf"]
 size = Vector2(8, 1081)
@@ -21,14 +22,11 @@ texture = ExtResource("1_s67ge")
 
 [node name="Player" parent="." unique_id=848951361 instance=ExtResource("2_6sny6")]
 position = Vector2(0, 462)
+is_multiplayer = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=543200367]
 
 [node name="ui_manager" parent="CanvasLayer" unique_id=1183294465 instance=ExtResource("3_7d3wn")]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="WallLeft" type="Area2D" parent="." unique_id=101412576]
 position = Vector2(-962, 0)
@@ -55,3 +53,5 @@ shape = SubResource("RectangleShape2D_3gdql")
 position = Vector2(-714, -376)
 
 [node name="PlayerHud" parent="." unique_id=1671160535 instance=ExtResource("5_qmqke")]
+
+[node name="MultiplayerHUD" parent="." unique_id=1016542195 instance=ExtResource("6_2k25j")]
