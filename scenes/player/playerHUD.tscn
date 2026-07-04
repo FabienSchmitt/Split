@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b3jgqitc2sqbp" path="res://assets/sprites/lama.png" id="1_plvqf"]
 [ext_resource type="Script" uid="uid://df05i384x6qfq" path="res://scripts/player_hud.gd" id="1_y28gi"]
+[ext_resource type="Texture2D" uid="uid://b8u0m7r4vakgi" path="res://assets/sprites/gros_glaire_1.png" id="2_yqkvg"]
 
 [node name="PlayerHud" type="CanvasLayer" unique_id=1671160535]
 script = ExtResource("1_y28gi")
@@ -34,8 +35,38 @@ columns = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/GridContainer" unique_id=1931976018]
 layout_mode = 2
-texture = ExtResource("1_plvqf")
+texture = ExtResource("2_yqkvg")
 
 [node name="Score" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/GridContainer" unique_id=1066083668]
 layout_mode = 2
 text = "Score: XX"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1270248946]
+offset_right = 127.0
+offset_bottom = 89.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer2" unique_id=321257840]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/PanelContainer" unique_id=1859128339]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer2/PanelContainer/MarginContainer" unique_id=1417149828]
+layout_mode = 2
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/PanelContainer/MarginContainer/GridContainer" unique_id=191568852]
+layout_mode = 2
+texture = ExtResource("1_plvqf")
+
+[node name="Life" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/GridContainer" unique_id=1173010460]
+layout_mode = 2
+text = "Life: XX"

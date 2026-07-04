@@ -27,6 +27,7 @@ script = ExtResource("1_5g7ut")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=598434664]
 position = Vector2(-19.745, 0)
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_2tsbi")
 animation = &"spit"
 
