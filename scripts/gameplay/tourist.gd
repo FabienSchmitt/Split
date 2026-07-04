@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var life_component : LifeComponent = %LifeComponent
 @onready var ray_cast_right := %RayCastRight
 @onready var ray_cast_left : RayCast2D= %RayCastLeft
+@export var flash_scene: PackedScene
 
 var speed : float = 50
 var direction : Vector2
@@ -50,3 +51,5 @@ func _die() -> void:
 
 func attack() -> void:
 	EventBus.player_life_lost.emit(1)
+	var flash = flash_scene.instantiate()
+	get_tree().current_scene.add_child(flash)
