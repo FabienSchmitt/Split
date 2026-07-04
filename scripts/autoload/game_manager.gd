@@ -7,6 +7,11 @@ var current_score: int = 0
 var current_life: int = 10
 var score_history: Array[int] = []
 
+func reset_game() -> void:
+	reset_score()
+	reset_life()
+	is_game_over = false
+
 func reset_score() -> void:
 	current_score = start_score
 

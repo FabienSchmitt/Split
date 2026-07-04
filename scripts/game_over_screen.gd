@@ -10,7 +10,7 @@ func _process(_delta) -> void:
 	final_score_label.text = "Final Score: " + str(GameManager.current_score)
 
 	if Input.is_action_just_pressed("p1_shoot"):
-		GameManager.is_game_over = false
+		GameManager.reset_game()
 		Engine.time_scale = 1.0
 		self.hide()
 		get_tree().reload_current_scene()
