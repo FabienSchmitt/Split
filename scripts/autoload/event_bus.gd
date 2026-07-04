@@ -7,6 +7,6 @@ signal player_score_added(scoreToAdd: int)
 signal player_life_lost(lifeToLose: int)
 
 @warning_ignore("unused_signal")
-signal show_game_over_screen()
+signal game_is_over()
 
 # signal tourist_has_been_hit(tourist: Tourist)

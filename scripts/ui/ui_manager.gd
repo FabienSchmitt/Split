@@ -27,7 +27,7 @@ func _ready() -> void:
 		get_tree().change_scene_to_file(MAIN_MENU_SCENE)
 	)
 
-	EventBus.show_game_over_screen.connect(func():
+	EventBus.game_is_over.connect(func():
 		timer = get_node_or_null("GameOverTimer")
 		if timer == null:
 			timer = Timer.new()

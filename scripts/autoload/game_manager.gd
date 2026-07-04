@@ -48,4 +48,4 @@ func lose_life(value: int) -> void:
 	if current_life == 0:
 		is_game_over = true
 		add_current_score_to_history()
-		EventBus.show_game_over_screen.emit()
+		EventBus.game_is_over.emit()
