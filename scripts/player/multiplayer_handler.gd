@@ -11,9 +11,12 @@ var  player_actions: Dictionary[ACTION, PLAYER] = {
 	ACTION.SHUFFLE: PLAYER.UNDEFINED
 }
 
-var 
-
 var is_singleplayer := false
+var mix_timer: SceneTreeTimer
+
+func _ready() -> void:
+	EventBus.game_starts.connect(plan_next_mix)
+	EventBus.warning_played.connect(mix_controls)
 
 func set_single_player():
 	is_singleplayer = true
@@ -62,8 +65,18 @@ func compute_spit_direction(lama: Lama) -> Vector2:
 	return input_vector
 
 
-func mix_controller():
+func mix_controls():
 	if is_singleplayer: return
 	for pa_key in player_actions.keys():
 		var player = randi_range(PLAYER.ONE, PLAYER.TWO)
 		player_actions.set(pa_key, player)
+	
+	EventBus.controls_mixed.emit()
+	plan_next_mix()
+
+func plan_next_mix():
+	mix_timer = get_tree().create_timer(30)
+	mix_timer.timeout.connect(func() : send_mix_warning())
+
+func send_mix_warning():
+	EventBus.send_controls_mixed_warning.emit()

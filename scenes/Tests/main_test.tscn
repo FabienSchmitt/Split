@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://co4gsgq04auk1"]
 
+[ext_resource type="Script" uid="uid://bn1p0hnlwtsvg" path="res://scripts/test/main_test.gd" id="1_7h87n"]
 [ext_resource type="Texture2D" uid="uid://bywn8rp8ya0l5" path="res://resources/background-with-human.png" id="1_s67ge"]
 [ext_resource type="PackedScene" uid="uid://dlsjbkug74opl" path="res://scenes/player/lama.tscn" id="2_6sny6"]
 [ext_resource type="PackedScene" uid="uid://cbkbhmpeop5u5" path="res://scenes/ui/ui_manager.tscn" id="3_7d3wn"]
@@ -14,6 +15,7 @@ size = Vector2(8, 1081)
 size = Vector2(1939, 11)
 
 [node name="Main scene" type="Node2D" unique_id=1889810806]
+script = ExtResource("1_7h87n")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=830249753]
 

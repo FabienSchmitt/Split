@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 const ICONS := {
 	MultiplayerHandler.ACTION.CHARGE: preload("res://assets/icons/pan_flute.png"),
@@ -9,9 +9,23 @@ const ICONS := {
 
 @onready var player1_container: HBoxContainer = %Player1IconContainer
 @onready var player2_container: HBoxContainer = %Player2IconContainer
+@onready var player1_timer: Label = %Timer1Label
+@onready var player2_timer: Label = %Timer2Label
+@onready var audio_player: AudioStreamPlayer2D = %ChangeAudioStreamPlayer2D
+@onready var warning_audio_player: AudioStreamPlayer2D = %WarningAudioStreamPlayer2D
+
 
 func _ready():
 	compute_icons_position()
+	EventBus.controls_mixed.connect(compute_icons_position)
+	EventBus.send_controls_mixed_warning.connect(play_warning)
+
+
+func _process(delta: float) -> void:
+	if MultiplayerHandler.mix_timer:
+		player1_timer.text = "%.1f" % MultiplayerHandler.mix_timer.time_left
+		player2_timer.text = "%.1f" % MultiplayerHandler.mix_timer.time_left
+	
 
 func compute_icons_position():
 	cleanup_icons()
@@ -23,11 +37,12 @@ func compute_icons_position():
 		var container = create_empty_icon_container(ICONS.get(icon_key))
 		if player == MultiplayerHandler.PLAYER.ONE:
 			player1_container.add_child(container)
-		elif player == MultiplayerHandler.PLAYER.TWO
+		elif player == MultiplayerHandler.PLAYER.TWO:
 			player2_container.add_child(container)
 	
 
 func create_empty_icon_container(r: Resource) -> TextureRect:
+	audio_player.play()
 	var icon_container = TextureRect.new()
 	icon_container.texture = r
 	icon_container.modulate = Color(1,1,1,1)
@@ -40,3 +55,8 @@ func cleanup_icons():
 		c.queue_free()
 	for c in player2_container.get_children():
 		c.queue_free()
+
+func play_warning():
+	warning_audio_player.play()
+	await warning_audio_player.finished
+	EventBus.warning_played.emit()
