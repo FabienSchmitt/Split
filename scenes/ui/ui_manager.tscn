@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://brrwui7q5opd6" path="res://scripts/ui/ui_manager.gd" id="1_qjbkm"]
 [ext_resource type="PackedScene" uid="uid://c676g8ttgn28a" path="res://scenes/ui/pause_screen.tscn" id="2_b2463"]
 [ext_resource type="PackedScene" uid="uid://cgwfikravuglo" path="res://scenes/ui/settings_screen.tscn" id="3_js4l8"]
+[ext_resource type="PackedScene" uid="uid://b6ef3rvt6ji5v" path="res://scenes/ui/game_over_screen.tscn" id="4_js4l8"]
 
 [node name="UIManager" type="Control" unique_id=1183294465]
 process_mode = 3
@@ -21,5 +22,9 @@ layout_mode = 1
 
 [node name="SettingsScreen" parent="." unique_id=1440927587 instance=ExtResource("3_js4l8")]
 unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="GameOverScreen" parent="." unique_id=26548031 instance=ExtResource("4_js4l8")]
 visible = false
 layout_mode = 1

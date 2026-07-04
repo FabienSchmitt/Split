@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://co4gsgq04auk1"]
 
 [ext_resource type="Texture2D" uid="uid://bywn8rp8ya0l5" path="res://resources/background-with-human.png" id="1_s67ge"]
-[ext_resource type="PackedScene" uid="uid://dlsjbkug74opl" path="res://scenes/player/player.tscn" id="2_6sny6"]
+[ext_resource type="PackedScene" uid="uid://dlsjbkug74opl" path="res://scenes/player/lama.tscn" id="2_6sny6"]
 [ext_resource type="PackedScene" uid="uid://cbkbhmpeop5u5" path="res://scenes/ui/ui_manager.tscn" id="3_7d3wn"]
 [ext_resource type="PackedScene" uid="uid://cbsfgudr4nhn7" path="res://scenes/Tests/test_tourist_scene.tscn" id="4_e6vto"]
 [ext_resource type="PackedScene" uid="uid://kfklb8l882ft" path="res://scenes/player/playerHUD.tscn" id="5_qmqke"]
