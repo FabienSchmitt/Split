@@ -25,6 +25,8 @@ var lama_facing_direction: float = 1
 func _ready() -> void:
 	if !is_multiplayer:
 		MultiplayerHandler.set_single_player()
+	EventBus.game_is_over.connect(die)
+
 
 func attack(spit_direction: Vector2) -> void:
 	if GameManager.is_game_over:
@@ -98,3 +100,6 @@ func reset_charging() -> void:
 	crachat_in_progress = false
 	crachat_progress = 0
 	# crachat_stream_player.stop()
+
+func die() -> void:
+	animated_sprite_2d.play("die")

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://csotm80jh48d0"]
+
+[ext_resource type="Script" uid="uid://biogwo8uxabgs" path="res://scripts/score_display.gd" id="1_0cy4f"]
+[ext_resource type="FontFile" uid="uid://c0ltxnl42caku" path="res://assets/fonts/rubik/Rubik-ExtraBold.ttf" id="2_fvh7i"]
+
+[node name="ScoreDisplay" type="Node2D" unique_id=1338392699]
+script = ExtResource("1_0cy4f")
+
+[node name="Label" type="Label" parent="." unique_id=1259773547]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_fvh7i")
+theme_override_font_sizes/font_size = 24
+text = "+10"

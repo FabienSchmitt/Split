@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var ray_cast_right := %RayCastRight
 @onready var ray_cast_left : RayCast2D= %RayCastLeft
 @export var flash_scene: PackedScene
+@export var score_display_scene: PackedScene
 @onready var sprite : AnimatedSprite2D = %AnimatedSprite2D
 
 
@@ -36,7 +37,7 @@ func _ready() -> void:
 	direction = Vector2.LEFT if randi_range(0, 1) == 0  else Vector2.RIGHT
 	hit_component.is_hit.connect(_has_been_hit)
 	life_component.died.connect(_die)
-	var random_skin = randi_range(1, 4)
+	var random_skin = randi_range(1, 3)
 	tourist_number = str(random_skin)
 	
 	_set_state_machine()
@@ -132,7 +133,14 @@ func state_die():
 
 func _has_been_hit() -> void :
 	print("has been hit")
-	EventBus.player_score_added.emit(1)
+	var score = 10
+	EventBus.player_score_added.emit(score)
+
+	var score_display = score_display_scene.instantiate()
+	get_tree().current_scene.add_child(score_display)
+	score_display.global_position = global_position + Vector2(10, 0)
+	score_display.set_score(score)
+
 	life_component.take_damage()
 
 func disable_collisions() -> void: 
@@ -141,8 +149,3 @@ func disable_collisions() -> void:
 
 func _die() -> void:
 	state_machine.change_state(state_die)
-
-
-
-	
-	
