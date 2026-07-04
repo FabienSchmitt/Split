@@ -8,7 +8,7 @@ extends Control
 @onready var main_menu_root : Control = %MainMenuRoot
 
 
-const START_GAME_PATH : String = "res://scenes/main/main.tscn"
+const START_GAME_PATH : String = "res://scenes/main/level1.tscn"
 
 func _ready() -> void:
 	# for controller functionnality, a control needs to grab the focus.
