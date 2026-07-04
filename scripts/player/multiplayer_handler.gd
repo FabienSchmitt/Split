@@ -17,7 +17,10 @@ func set_single_player():
 func handle_inputs(lama: Lama) -> void :
 	if GameManager.is_game_over:
 		return
-		
+	
+	# Aiming
+	lama.set_aiming_direction(get_aiming_direction())
+
 	# Shooting
 	if Input.is_action_just_pressed("p1_shoot") && player_actions.get(ACTION.SHOOT) == PLAYER.ONE || \
 		Input.is_action_just_pressed("p2_shoot") && player_actions.get(ACTION.SHOOT) == PLAYER.TWO:
@@ -40,12 +43,16 @@ func handle_inputs(lama: Lama) -> void :
 
 func compute_spit_direction(lama: Lama) -> Vector2:
 
-	var input_vector := Input.get_vector("p1_move_left", "p1_move_right", "p1_move_up", "p1_move_down") \
-		if  player_actions.get(ACTION.AIM) == PLAYER.ONE else \
-		 Input.get_vector("p2_move_left", "p2_move_right", "p2_move_up", "p2_move_down") 
+	var input_vector = get_aiming_direction()
 
 	if input_vector == Vector2.ZERO:
 		input_vector = Vector2(lama.lama_facing_direction, 0)
 	else:
 		input_vector = input_vector.normalized()
 	return input_vector
+
+func get_aiming_direction() -> Vector2:
+	var input_vector := Input.get_vector("p1_move_left", "p1_move_right", "p1_move_up", "p1_move_down") \
+		if  player_actions.get(ACTION.AIM) == PLAYER.ONE else \
+		 Input.get_vector("p2_move_left", "p2_move_right", "p2_move_up", "p2_move_down")
+	return input_vector.normalized()
