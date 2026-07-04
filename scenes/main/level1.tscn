@@ -35,6 +35,9 @@ position = Vector2(0, 462)
 position = Vector2(-820, 277)
 tourists_max = 3
 
+[node name="PopTimer" parent="Tourists/Bottom_left/TouristSpawnPoint" index="0" unique_id=925535427]
+wait_time = 6.300000000000001
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Bottom_left" unique_id=461308304]
 position = Vector2(-828, 290)
 collision_layer = 2
@@ -51,6 +54,9 @@ position = Vector2(-353, -7)
 tourist_scale = Vector2(0.3, 0.3)
 tourist_speed = 10.0
 tourists_max = 2
+
+[node name="PopTimer" parent="Tourists/Up_center/TouristSpawnPoint" index="0" unique_id=925535427]
+wait_time = 9.7
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Up_center" unique_id=1633312398]
 position = Vector2(-291, 10)

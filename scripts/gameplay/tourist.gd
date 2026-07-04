@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var ray_cast_left : RayCast2D= %RayCastLeft
 @export var flash_scene: PackedScene
 @onready var sprite : AnimatedSprite2D = %AnimatedSprite2D
+@onready var score_label : Label = $ScoreLabel
 
 
 var tourist_number := "1"
@@ -99,7 +100,11 @@ func state_die():
 
 func _has_been_hit() -> void :
 	print("has been hit")
-	EventBus.player_score_added.emit(1)
+	var score = 10
+	score_label.visible = true
+	score_label.text = "+" + str(score)
+	EventBus.player_score_added.emit(score)
+	get_tree().create_timer(1).timeout.connect(func(): score_label.visible = false)
 	life_component.take_damage()
 
 func disable_collisions() -> void: 
