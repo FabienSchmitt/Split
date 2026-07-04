@@ -27,18 +27,30 @@ func compute_icons_position():
 	
 	for icon_key in ICONS.keys():
 		var player = MultiplayerHandler.player_actions.get(icon_key)
-		var container = create_empty_icon_container(ICONS.get(icon_key))
+		var row_container = create_icon_row(ICONS.get(icon_key), ICONS_HELPER.get(icon_key))
 		if player == MultiplayerHandler.PLAYER.ONE:
-			player1_container.add_child(container)
+			player1_container.add_child(row_container)
 		else:
-			player2_container.add_child(container)
-	
+			player2_container.add_child(row_container)
 
-func create_empty_icon_container(r: Resource) -> TextureRect:
+func create_icon_row(main_icon_texture: Resource, helper_icon_texture: Resource) -> VBoxContainer:
+	var row_container = VBoxContainer.new()
+	row_container.alignment = BoxContainer.ALIGNMENT_CENTER
+
+	var main_icon = create_empty_icon_container(main_icon_texture, Vector2(64, 64))
+	row_container.add_child(main_icon)
+
+	var helper_icon = create_empty_icon_container(helper_icon_texture, Vector2(24, 24))
+	helper_icon.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	helper_icon.modulate = Color(1, 1, 1, 0.85)
+	row_container.add_child(helper_icon)
+	return row_container
+
+func create_empty_icon_container(r: Resource, size: Vector2 = Vector2(64, 64)) -> TextureRect:
 	var icon_container = TextureRect.new()
 	icon_container.texture = r
 	icon_container.modulate = Color(1,1,1,1)
-	icon_container.custom_minimum_size = Vector2(64, 64)
+	icon_container.custom_minimum_size = size
 	icon_container.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	return icon_container
 	
