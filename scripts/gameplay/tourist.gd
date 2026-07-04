@@ -31,6 +31,7 @@ var idle_animation : String :
 var speed : float = 50
 var direction : Vector2
 var timer: SceneTreeTimer
+var timer2: SceneTreeTimer
 var should_attack = false
 
 func _ready() -> void:
@@ -52,11 +53,15 @@ func _set_state_machine() -> void :
 
 func _set_attack_timer() -> void : 
 	should_attack = false
-	timer = get_tree().create_timer(5.0)
-	timer.timeout.connect(func(): should_attack = true)
-
-
-func _physics_process(delta: float) -> void:
+	timer = get_tree().create_timer(3.0)
+	timer.timeout.connect(func(): 
+		sprite.modulate = Color("#ff00ff")
+		var tween = create_tween()
+		tween.tween_property(sprite, "modulate", Color.WHITE, 2.0)
+		timer2 = get_tree().create_timer(2.0)
+		timer2.timeout.connect(func(): should_attack = true))
+	
+func _physics_process(_delta: float) -> void:
 	state_machine.update()
 
 func enter_state_walk():
