@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var life_component : LifeComponent = %LifeComponent
 @onready var ray_cast_right := %RayCastRight
 @onready var ray_cast_left : RayCast2D= %RayCastLeft
+@export var flash_scene: PackedScene
 @onready var sprite : AnimatedSprite2D = %AnimatedSprite2D
 
 var tourist_number := "1"
@@ -14,12 +15,25 @@ var tourist_number := "1"
 
 var speed : float = 50
 var direction : Vector2
+var timer: Timer
 
 func _ready() -> void:
 	direction = Vector2.LEFT if randi_range(0, 1) == 0  else Vector2.RIGHT
 	hit_component.is_hit.connect(_has_been_hit)
 	life_component.died.connect(_die)
 	sprite.play(tourist_number + "_idle")
+
+	timer = get_node_or_null("AttackTimer")
+	if timer == null:
+		timer = Timer.new()
+		timer.name = "AttackTimer"
+		add_child(timer)
+
+	timer.wait_time = 1.0
+	timer.one_shot = false
+	timer.autostart = true
+	timer.timeout.connect(attack)
+	timer.start()
 
 func _physics_process(delta: float) -> void:
 	
@@ -36,6 +50,7 @@ func _physics_process(delta: float) -> void:
 
 func _has_been_hit() -> void :
 	print("has been hit")
+	EventBus.player_score_added.emit(1)
 	life_component.take_damage()
 
 func disable_collisions() -> void: 
@@ -47,3 +62,11 @@ func _die() -> void:
 	sprite.play(tourist_number + "_die")
 	await sprite.animation_finished
 	queue_free()
+
+func attack() -> void:
+	if GameManager.is_game_over:
+		return
+	EventBus.player_life_lost.emit(1)
+	var flash = flash_scene.instantiate()
+	get_tree().current_scene.add_child(flash)
+	

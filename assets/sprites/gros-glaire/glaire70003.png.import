@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqt87iuvqnro8"
-path="res://.godot/imported/fireball_01.png-410b77189f9d1e05419784ba6f8e12c7.ctex"
+uid="uid://qdcw1ixcgwmk"
+path="res://.godot/imported/glaire70003.png-e221347b2573978dc431f629f44b95ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/fireball_01.png"
-dest_files=["res://.godot/imported/fireball_01.png-410b77189f9d1e05419784ba6f8e12c7.ctex"]
+source_file="res://assets/sprites/gros-glaire/glaire70003.png"
+dest_files=["res://.godot/imported/glaire70003.png-e221347b2573978dc431f629f44b95ba.ctex"]
 
 [params]
 

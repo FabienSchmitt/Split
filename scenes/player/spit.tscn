@@ -1,17 +1,33 @@
 [gd_scene format=3 uid="uid://bf3e0s1qcjffn"]
 
 [ext_resource type="Script" uid="uid://bpbdkw6bk7sc6" path="res://scripts/spit.gd" id="1_5g7ut"]
-[ext_resource type="Texture2D" uid="uid://dqt87iuvqnro8" path="res://assets/sprites/fireball_01.png" id="1_tal6h"]
+[ext_resource type="Texture2D" uid="uid://b8u0m7r4vakgi" path="res://assets/sprites/gros_glaire_1.png" id="2_5g7ut"]
+[ext_resource type="Texture2D" uid="uid://oabol2dophp" path="res://assets/sprites/gros_glaire_2.png" id="3_sifs4"]
+[ext_resource type="Texture2D" uid="uid://c7sclnlixjwib" path="res://assets/sprites/gros_glaire_3.png" id="4_3u44b"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5g7ut"]
-atlas = ExtResource("1_tal6h")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd6mq"]
+atlas = ExtResource("2_5g7ut")
+region = Rect2(0, 0, 120, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b01vk"]
+atlas = ExtResource("3_sifs4")
+region = Rect2(0, 0, 120, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpp4f"]
+atlas = ExtResource("4_3u44b")
 region = Rect2(0, 0, 120, 66)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2tsbi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5g7ut")
+"texture": SubResource("AtlasTexture_dd6mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b01vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpp4f")
 }],
 "loop": 1,
 "name": &"spit",
@@ -19,16 +35,19 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lo2sf"]
-radius = 32.23
 
 [node name="Spit" type="Area2D" unique_id=921111117]
 collision_layer = 4
 script = ExtResource("1_5g7ut")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=598434664]
-position = Vector2(-19.745, 0)
+position = Vector2(-7.985, 0)
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_2tsbi")
 animation = &"spit"
+autoplay = "spit"
+frame = 2
+frame_progress = 0.8725977
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=304887778]
 shape = SubResource("CircleShape2D_lo2sf")

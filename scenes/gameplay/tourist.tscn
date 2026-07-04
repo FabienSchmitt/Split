@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c2biicfy76idi"]
 
 [ext_resource type="Script" uid="uid://dy6wqg5kbe0gl" path="res://scripts/gameplay/tourist.gd" id="1_uge42"]
+[ext_resource type="Texture2D" uid="uid://1c3q0lw65krl" path="res://icon.svg" id="1_w7gwi"]
+[ext_resource type="PackedScene" uid="uid://by3wvvgshtbm" path="res://scenes/gameplay/flash.tscn" id="2_6y0xg"]
 [ext_resource type="PackedScene" uid="uid://cihaxjy0o30fr" path="res://scenes/gameplay/hit_component.tscn" id="3_77lbt"]
 [ext_resource type="Texture2D" uid="uid://cxf06icrofsfo" path="res://assets/sprites/tourists/tourist-1-dead.png" id="4_6y0xg"]
 [ext_resource type="PackedScene" uid="uid://n4yiq57nljii" path="res://scenes/gameplay/life_component.tscn" id="4_bf2ew"]
@@ -128,6 +130,10 @@ animations = [{
 collision_layer = 8
 collision_mask = 6
 script = ExtResource("1_uge42")
+flash_scene = ExtResource("2_6y0xg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1510157613]
+position = Vector2(2, -65)
 sprite_image_path = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1939846530]

@@ -22,6 +22,9 @@ func _init(l: Lama) -> void:
 			player_actions.set(pa_key, PLAYER.ONE)
 
 func handle_inputs() -> void :
+	if GameManager.is_game_over:
+		return
+		
 	if Input.is_action_just_pressed("p1_shoot") && player_actions.get(ACTION.SHOOT) == PLAYER.ONE || \
 		Input.is_action_just_pressed("p2_shoot") && player_actions.get(ACTION.SHOOT) == PLAYER.TWO:
 		_lama.attack(compute_spit_direction())
