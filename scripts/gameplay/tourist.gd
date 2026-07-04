@@ -120,6 +120,9 @@ func _die() -> void:
 func attack() -> void:
 	sprite.play(photo_animation)
 	await sprite.animation_finished
+	if life_component.is_dead:
+		return
+
 	EventBus.player_life_lost.emit(1)
 	var flash = flash_scene.instantiate()
 	get_tree().current_scene.add_child(flash)
