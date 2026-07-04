@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgu8sk53hcuqt"
-path="res://.godot/imported/tourist-1-idle.png-209261cf399705379736bc9d3bae9d4b.ctex"
+uid="uid://bntcicgehqdwq"
+path="res://.godot/imported/tourist-4-walk.png-94f6370c25b774baad3a57367f80c6e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tourist-1-idle.png"
-dest_files=["res://.godot/imported/tourist-1-idle.png-209261cf399705379736bc9d3bae9d4b.ctex"]
+source_file="res://assets/sprites/tourists/tourist-4-walk.png"
+dest_files=["res://.godot/imported/tourist-4-walk.png-94f6370c25b774baad3a57367f80c6e6.ctex"]
 
 [params]
 

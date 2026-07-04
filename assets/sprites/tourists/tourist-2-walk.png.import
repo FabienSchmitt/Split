@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3ekglgam0342"
-path="res://.godot/imported/tourist-2-photo.png-189ad2a16ca1982c5515da4b600e1cf6.ctex"
+uid="uid://dhrnv5q5ugnx4"
+path="res://.godot/imported/tourist-2-walk.png-13fc7584173148099049b1aa129b6159.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tourist-2-photo.png"
-dest_files=["res://.godot/imported/tourist-2-photo.png-189ad2a16ca1982c5515da4b600e1cf6.ctex"]
+source_file="res://assets/sprites/tourists/tourist-2-walk.png"
+dest_files=["res://.godot/imported/tourist-2-walk.png-13fc7584173148099049b1aa129b6159.ctex"]
 
 [params]
 

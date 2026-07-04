@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fytkbvqpyfdq"
-path="res://.godot/imported/tourist-3-dead.png-634659215c2bfc3b0167368cd5260e04.ctex"
+uid="uid://tvhdffa23i2q"
+path="res://.godot/imported/tourist-4-dead.png-1955bfdb9ada0d93d89e9057a76e29dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tourist-3-dead.png"
-dest_files=["res://.godot/imported/tourist-3-dead.png-634659215c2bfc3b0167368cd5260e04.ctex"]
+source_file="res://assets/sprites/tourists/tourist-4-dead.png"
+dest_files=["res://.godot/imported/tourist-4-dead.png-1955bfdb9ada0d93d89e9057a76e29dc.ctex"]
 
 [params]
 
