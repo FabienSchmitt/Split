@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://by3wvvgshtbm"]
 
 [ext_resource type="Script" uid="uid://2vymg2vhhs1f" path="res://scripts/flash.gd" id="1_3rhq1"]
+[ext_resource type="AudioStream" uid="uid://dxhu8isotu11v" path="res://assets/sound/flash-camera.mp3" id="2_edkva"]
 
 [node name="Flash" type="CanvasLayer" unique_id=1416816512]
 script = ExtResource("1_3rhq1")
@@ -11,3 +12,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="FlashSound2D" type="AudioStreamPlayer2D" parent="." unique_id=506862666]
+stream = ExtResource("2_edkva")

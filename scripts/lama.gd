@@ -7,6 +7,7 @@ const SPEED = 450;
 @onready var ray_cast_2d_right: RayCast2D = $RayCast2D_Right
 @onready var ray_cast_2d_left: RayCast2D = $RayCast2D_Left
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $WalkingSound2D
 
 @export var spit_scene: PackedScene
 
@@ -22,6 +23,9 @@ func _ready() -> void:
 
 
 func attack(spit_direction: Vector2) -> void:
+	if GameManager.is_game_over:
+		return
+
 	var spit = spit_scene.instantiate()
 	get_tree().current_scene.add_child(spit)
 	spit.global_position = global_position
@@ -30,6 +34,8 @@ func attack(spit_direction: Vector2) -> void:
 	current_spit = spit
 
 func _physics_process(delta: float) -> void:
+	if GameManager.is_game_over:
+		return
 	
 	_multiplayer_handler.handle_inputs()
 	if current_direction != 0 && current_direction != lama_facing_direction:
@@ -45,9 +51,13 @@ func _physics_process(delta: float) -> void:
 	if current_direction:
 		velocity.x = current_direction * SPEED
 		update_animation(current_direction)
+		if(audio_stream_player_2d.playing == false):
+			audio_stream_player_2d.play()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite_2d.play("idle")
+		if(audio_stream_player_2d.playing == true):
+			audio_stream_player_2d.stop()
 
 	move_and_slide()
 

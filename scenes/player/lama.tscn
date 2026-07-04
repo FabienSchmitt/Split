@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cg6emrpe80f32" path="res://scripts/lama.gd" id="1_ggtou"]
 [ext_resource type="PackedScene" uid="uid://bf3e0s1qcjffn" path="res://scenes/player/spit.tscn" id="2_gmlin"]
 [ext_resource type="Texture2D" uid="uid://bff3rpmv7j7bf" path="res://assets/sprites/lama-center-left-right.png" id="3_gmlin"]
+[ext_resource type="AudioStream" uid="uid://b75560trmoreg" path="res://assets/sound/lama-walk.mp3" id="4_jjym0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lvxji"]
 atlas = ExtResource("3_gmlin")
@@ -82,3 +83,7 @@ collide_with_areas = true
 [node name="RayCast2D_Left" type="RayCast2D" parent="." unique_id=655253548]
 target_position = Vector2(-50, 0)
 collide_with_areas = true
+
+[node name="WalkingSound2D" type="AudioStreamPlayer2D" parent="." unique_id=2005590336]
+stream = ExtResource("4_jjym0")
+bus = &"Sounds"

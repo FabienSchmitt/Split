@@ -25,10 +25,10 @@ position = Vector2(0, 462)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=543200367]
 
 [node name="ui_manager" parent="CanvasLayer" unique_id=1183294465 instance=ExtResource("3_7d3wn")]
-offset_left = 1.0
-offset_top = -6.0
-offset_right = 1.0
-offset_bottom = -6.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="WallLeft" type="Area2D" parent="." unique_id=101412576]
 position = Vector2(-962, 0)
