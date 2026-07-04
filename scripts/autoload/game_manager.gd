@@ -18,17 +18,16 @@ func reset_score() -> void:
 func reset_life() -> void:
 	current_life = start_life
 
-func set_score(value: int) -> void:
-	current_score = value
-
 func add_score(value: int) -> void:
+	if is_game_over:
+		return
 	current_score += value
 
 func add_current_score_to_history() -> void:
 	score_history.append(current_score)
 
-func get_best_score_of_last_10() -> int:
-	var start_index: int = max(0, score_history.size() - 10)
+func get_best_score() -> int:
+	var start_index: int = max(0, score_history.size() - 1)
 	if score_history.is_empty():
 		return 0
 
@@ -39,6 +38,9 @@ func get_best_score_of_last_10() -> int:
 	return best_score
 
 func lose_life(value: int) -> void:
+	if is_game_over:
+		return
+		
 	if current_life > 0:
 		current_life -= value
 	if current_life < 0:

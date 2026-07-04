@@ -7,7 +7,8 @@ func _process(_delta) -> void:
 	if not self.is_visible():
 		return
 
-	final_score_label.text = "Final Score: " + str(GameManager.current_score)
+	final_score_label.text = "Final Score for this Run: " + str(GameManager.current_score)
+	final_score_label.text += "\nYour Best Score overall: " + str(GameManager.get_best_score())
 
 	if Input.is_action_just_pressed("p1_shoot"):
 		GameManager.reset_game()
