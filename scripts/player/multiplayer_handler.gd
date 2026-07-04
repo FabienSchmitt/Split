@@ -66,9 +66,9 @@ func compute_spit_direction(lama: Lama) -> Vector2:
 	return input_vector
 
 func get_aiming_direction() -> Vector2:
-	var input_vector := Input.get_vector("p1_move_left", "p1_move_right", "p1_move_up", "p1_move_down") \
+	var input_vector := Input.get_vector("p1_aim_left", "p1_aim_right", "p1_aim_up", "p1_aim_down") \
 		if  player_actions.get(ACTION.AIM) == PLAYER.ONE else \
-		 Input.get_vector("p2_move_left", "p2_move_right", "p2_move_up", "p2_move_down")
+		 Input.get_vector("p2_aim_left", "p2_aim_right", "p2_aim_up", "p2_aim_down")
 	return input_vector.normalized()
 
 
