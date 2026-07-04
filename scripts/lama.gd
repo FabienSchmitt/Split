@@ -2,24 +2,23 @@ class_name Lama
 extends CharacterBody2D
 const SPEED = 450;
 
+@export var is_multiplayer := false
+
 @onready var ray_cast_2d_right: RayCast2D = $RayCast2D_Right
 @onready var ray_cast_2d_left: RayCast2D = $RayCast2D_Left
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var is_multiplayer := false
 
 @export var spit_scene: PackedScene
 
 var current_spit = null
 var current_direction := 1.0
 var _multiplayer_handler: MultiplayerHandler
-var _singleplayer_handler: SingleplayerHandler
 
 # Can be -1 (left) or 1 (right)
 var lama_facing_direction: float = 1
 
 func _ready() -> void:
 	_multiplayer_handler = MultiplayerHandler.new(self)
-	_singleplayer_handler = SingleplayerHandler.new(self)
 
 
 func attack(spit_direction: Vector2) -> void:
@@ -32,12 +31,7 @@ func attack(spit_direction: Vector2) -> void:
 
 func _physics_process(delta: float) -> void:
 	
-
-	if is_multiplayer:
-		_multiplayer_handler.handle_inputs()
-	else: 
-		_singleplayer_handler.handle_input()
-
+	_multiplayer_handler.handle_inputs()
 	if current_direction != 0 && current_direction != lama_facing_direction:
 		change_direction(current_direction)
 
