@@ -43,6 +43,11 @@ theme_override_font_sizes/font_size = 64
 text = "Game over"
 horizontal_alignment = 1
 
+[node name="FinalScore" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1477199862]
+layout_mode = 2
+text = "YOUR SCORE: XXX"
+horizontal_alignment = 1
+
 [node name="Details" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1054602308]
 layout_mode = 2
 size_flags_vertical = 1
