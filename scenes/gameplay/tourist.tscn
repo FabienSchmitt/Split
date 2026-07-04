@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dy6wqg5kbe0gl" path="res://scripts/gameplay/tourist.gd" id="1_uge42"]
 [ext_resource type="PackedScene" uid="uid://by3wvvgshtbm" path="res://scenes/gameplay/flash.tscn" id="2_6y0xg"]
 [ext_resource type="PackedScene" uid="uid://cihaxjy0o30fr" path="res://scenes/gameplay/hit_component.tscn" id="3_77lbt"]
+[ext_resource type="PackedScene" uid="uid://csotm80jh48d0" path="res://scenes/gameplay/score_display.tscn" id="3_dh84t"]
 [ext_resource type="Texture2D" uid="uid://cxf06icrofsfo" path="res://assets/sprites/tourists/tourist-1-dead.png" id="4_6y0xg"]
 [ext_resource type="PackedScene" uid="uid://n4yiq57nljii" path="res://scenes/gameplay/life_component.tscn" id="4_bf2ew"]
 [ext_resource type="Texture2D" uid="uid://c8q6v5elock4y" path="res://assets/sprites/tourists/tourist-1-photo.png" id="5_6y0xg"]
@@ -725,6 +726,7 @@ collision_layer = 8
 collision_mask = 6
 script = ExtResource("1_uge42")
 flash_scene = ExtResource("2_6y0xg")
+score_display_scene = ExtResource("3_dh84t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1939846530]
 unique_name_in_owner = true
@@ -762,13 +764,5 @@ unique_name_in_owner = true
 position = Vector2(0, -150)
 sprite_frames = SubResource("SpriteFrames_4ovnp")
 animation = &"2_walk"
-
-[node name="ScoreLabel" type="Label" parent="." unique_id=1611508647]
-visible = false
-offset_left = 24.0
-offset_top = -144.0
-offset_right = 64.0
-offset_bottom = -121.0
-text = "+10"
 
 [editable path="HitComponent"]
