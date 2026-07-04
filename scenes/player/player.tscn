@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dlsjbkug74opl"]
+
+[ext_resource type="Script" uid="uid://dssnisjsncl6b" path="res://scripts/player.gd" id="1_dovo2"]
+[ext_resource type="PackedScene" uid="uid://bf3e0s1qcjffn" path="res://scenes/player/spit.tscn" id="2_gmlin"]
+[ext_resource type="Texture2D" uid="uid://bff3rpmv7j7bf" path="res://assets/sprites/lama-center-left-right.png" id="3_gmlin"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvxji"]
+atlas = ExtResource("3_gmlin")
+region = Rect2(0, 0, 31, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
+atlas = ExtResource("3_gmlin")
+region = Rect2(0, 0, 31, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p47bc"]
+atlas = ExtResource("3_gmlin")
+region = Rect2(0, 69, 31, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75vfm"]
+atlas = ExtResource("3_gmlin")
+region = Rect2(0, 0, 31, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0owmy"]
+atlas = ExtResource("3_gmlin")
+region = Rect2(0, 138, 31, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lo2sf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvxji")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmlin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p47bc")
+}],
+"loop": 1,
+"name": &"left_move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75vfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0owmy")
+}],
+"loop": 1,
+"name": &"right_move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
+radius = 19.94
+
+[node name="Player" type="CharacterBody2D" unique_id=1880450837]
+script = ExtResource("1_dovo2")
+spit_scene = ExtResource("2_gmlin")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1172210751]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_lo2sf")
+animation = &"right_move"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1838874130]
+shape = SubResource("CircleShape2D_dovo2")
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="." unique_id=829360666]
+target_position = Vector2(50, 0)
+collide_with_areas = true
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="." unique_id=655253548]
+target_position = Vector2(-50, 0)
+collide_with_areas = true

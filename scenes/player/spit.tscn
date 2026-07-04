@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bf3e0s1qcjffn"]
+
+[ext_resource type="Script" uid="uid://bpbdkw6bk7sc6" path="res://scripts/spit.gd" id="1_5g7ut"]
+[ext_resource type="Texture2D" uid="uid://dqt87iuvqnro8" path="res://assets/sprites/fireball_01.png" id="1_tal6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g7ut"]
+atlas = ExtResource("1_tal6h")
+region = Rect2(0, 0, 120, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tsbi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g7ut")
+}],
+"loop": 1,
+"name": &"spit",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lo2sf"]
+radius = 32.23
+
+[node name="Spit" type="Area2D" unique_id=921111117]
+collision_layer = 4
+script = ExtResource("1_5g7ut")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=598434664]
+position = Vector2(-19.745, 0)
+sprite_frames = SubResource("SpriteFrames_2tsbi")
+animation = &"spit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=304887778]
+shape = SubResource("CircleShape2D_lo2sf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1494549139]
