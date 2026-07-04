@@ -11,7 +11,7 @@ func _ready() -> void:
 func _on_body_entered(_body: Node) -> void:
     collision_shape.disabled = true
     visible = false
+    EventBus.player_life_gained.emit(1)
     pickup_sound.play()
     await pickup_sound.finished
-    EventBus.player_life_gained.emit(1)
     queue_free()

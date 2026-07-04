@@ -14,3 +14,4 @@ func _ready() -> void:
 	get_tree().create_timer(12.0).timeout.connect(func (): TSP_Right_bottom.enable_spawning())
 	get_tree().create_timer(15.0).timeout.connect(func (): TSP_Right_up.enable_spawning())
 	get_tree().create_timer(18.0).timeout.connect(func (): TSP_Center_up.enable_spawning())
+	

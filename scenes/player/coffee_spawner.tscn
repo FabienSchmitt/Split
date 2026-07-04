@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://djkrgaur87bom"]
+
+[ext_resource type="Script" uid="uid://bl0wp68x0xxqg" path="res://scripts/coffee_spawner.gd" id="1_kd586"]
+
+[node name="CoffeeSpawner" type="Node2D" unique_id=2033986346]
+script = ExtResource("1_kd586")
