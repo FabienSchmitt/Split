@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 
 func _has_been_hit() -> void :
 	print("has been hit")
+	EventBus.player_score_added.emit(1)
 	life_component.take_damage()
 
 

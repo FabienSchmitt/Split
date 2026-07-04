@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dlsjbkug74opl" path="res://scenes/player/player.tscn" id="2_6sny6"]
 [ext_resource type="PackedScene" uid="uid://cbkbhmpeop5u5" path="res://scenes/ui/ui_manager.tscn" id="3_7d3wn"]
 [ext_resource type="PackedScene" uid="uid://cbsfgudr4nhn7" path="res://scenes/Tests/test_tourist_scene.tscn" id="4_e6vto"]
+[ext_resource type="PackedScene" uid="uid://kfklb8l882ft" path="res://scenes/player/playerHUD.tscn" id="5_qmqke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo2sf"]
 size = Vector2(8, 1081)
@@ -52,3 +53,5 @@ shape = SubResource("RectangleShape2D_3gdql")
 
 [node name="TestTouristScene" parent="." unique_id=1926719705 instance=ExtResource("4_e6vto")]
 position = Vector2(-714, -376)
+
+[node name="PlayerHud" parent="." unique_id=1671160535 instance=ExtResource("5_qmqke")]
