@@ -1,16 +1,22 @@
 extends Node 
 
-enum ACTION {SHOOT, MOVE, AIM, CHARGE}
-enum PLAYER {ONE, TWO}
+enum ACTION {SHOOT, MOVE, AIM, CHARGE, SHUFFLE}
+enum PLAYER {ONE, TWO, UNDEFINED}
 
 var  player_actions: Dictionary[ACTION, PLAYER] = {
 	ACTION.SHOOT:  PLAYER.TWO,
 	ACTION.MOVE: PLAYER.ONE,
 	ACTION.AIM: PLAYER.TWO,
-	ACTION.CHARGE: PLAYER.ONE
+	ACTION.CHARGE: PLAYER.ONE,
+	ACTION.SHUFFLE: PLAYER.UNDEFINED
 }
 
+var 
+
+var is_singleplayer := false
+
 func set_single_player():
+	is_singleplayer = true
 	for pa_key in player_actions.keys():
 		player_actions.set(pa_key, PLAYER.ONE)
 
@@ -38,14 +44,26 @@ func handle_inputs(lama: Lama) -> void :
 		Input.is_action_just_released("p2_charge") && player_actions.get(ACTION.CHARGE) == PLAYER.TWO:
 		lama.stop_charging()
 
+	# Shuffle
+	if Input.is_action_just_pressed("p1_shuffle") && player_actions.get(ACTION.SHUFFLE) == PLAYER.ONE || \
+		Input.is_action_just_pressed("p2_shuffle") && player_actions.get(ACTION.SHUFFLE) == PLAYER.TWO:
+		pass # need to shuffle and stuff.
+
 func compute_spit_direction(lama: Lama) -> Vector2:
 
-	var input_vector := Input.get_vector("p1_move_left", "p1_move_right", "p1_move_up", "p1_move_down") \
+	var input_vector := Input.get_vector("p1_aim_left", "p1_aim_right", "p1_aim_up", "p1_aim_down") \
 		if  player_actions.get(ACTION.AIM) == PLAYER.ONE else \
-		 Input.get_vector("p2_move_left", "p2_move_right", "p2_move_up", "p2_move_down") 
+		 Input.get_vector("p2_aim_left", "p2_aim_right", "p2_aim_up", "p2_aim_down") 
 
 	if input_vector == Vector2.ZERO:
 		input_vector = Vector2(lama.lama_facing_direction, 0)
 	else:
 		input_vector = input_vector.normalized()
 	return input_vector
+
+
+func mix_controller():
+	if is_singleplayer: return
+	for pa_key in player_actions.keys():
+		var player = randi_range(PLAYER.ONE, PLAYER.TWO)
+		player_actions.set(pa_key, player)

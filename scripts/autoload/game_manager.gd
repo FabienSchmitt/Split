@@ -54,3 +54,6 @@ func add_life(value: int) -> void:
 	if is_game_over:
 		return
 	current_life += value
+
+func change_player_control():
+	MultiplayerHandler.mix_controller()

@@ -23,7 +23,7 @@ func compute_icons_position():
 		var container = create_empty_icon_container(ICONS.get(icon_key))
 		if player == MultiplayerHandler.PLAYER.ONE:
 			player1_container.add_child(container)
-		else:
+		elif player == MultiplayerHandler.PLAYER.TWO
 			player2_container.add_child(container)
 	
 
