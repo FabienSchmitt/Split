@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://kfklb8l882ft" path="res://scenes/player/playerHUD.tscn" id="4_l3cfh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_020gs"]
-size = Vector2(236, 20)
+size = Vector2(537, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo2sf"]
 size = Vector2(8, 1081)
@@ -34,8 +34,11 @@ position = Vector2(-820, 277)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Bottom_left" unique_id=461308304]
 position = Vector2(-828, 290)
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tourists/Bottom_left/StaticBody2D" unique_id=1586785307]
+position = Vector2(150.5, 2.5)
 shape = SubResource("RectangleShape2D_020gs")
 
 [node name="Environment" type="Node" parent="." unique_id=1392962083]
@@ -72,3 +75,5 @@ offset_right = 1.0
 offset_bottom = -6.0
 
 [node name="PlayerHud" parent="UI" unique_id=1671160535 instance=ExtResource("4_l3cfh")]
+
+[editable path="Tourists/Bottom_left/TouristSpawnPoint"]
