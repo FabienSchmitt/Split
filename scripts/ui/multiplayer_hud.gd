@@ -37,20 +37,18 @@ func create_icon_row(main_icon_texture: Resource, helper_icon_texture: Resource)
 	var row_container = VBoxContainer.new()
 	row_container.alignment = BoxContainer.ALIGNMENT_CENTER
 
-	var main_icon = create_empty_icon_container(main_icon_texture, Vector2(64, 64))
+	var main_icon = create_empty_icon_container(main_icon_texture)
 	row_container.add_child(main_icon)
 
-	var helper_icon = create_empty_icon_container(helper_icon_texture, Vector2(24, 24))
-	helper_icon.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	var helper_icon = create_empty_icon_container(helper_icon_texture)
 	helper_icon.modulate = Color(1, 1, 1, 0.85)
 	row_container.add_child(helper_icon)
 	return row_container
 
-func create_empty_icon_container(r: Resource, size: Vector2 = Vector2(64, 64)) -> TextureRect:
+func create_empty_icon_container(r: Resource) -> TextureRect:
 	var icon_container = TextureRect.new()
 	icon_container.texture = r
 	icon_container.modulate = Color(1,1,1,1)
-	icon_container.custom_minimum_size = size
 	icon_container.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	return icon_container
 	
