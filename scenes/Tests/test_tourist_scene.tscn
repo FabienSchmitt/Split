@@ -7,11 +7,12 @@
 
 [node name="TouristSpawnPoint" parent="." unique_id=1397573386 instance=ExtResource("1_pr087")]
 position = Vector2(912, 556)
+tourist_scale = Vector2(2, 2)
 tourist_speed = 50.0
 
 [node name="TouristSpawnPoint2" parent="." unique_id=352060827 instance=ExtResource("1_pr087")]
 position = Vector2(362, 130)
-tourist_scale = Vector2(0.7, 0.7)
+tourist_scale = Vector2(1.5, 1.5)
 tourist_speed = 100.0
 
 [node name="PlatformTest" parent="." unique_id=2136340965 instance=ExtResource("2_nthgn")]
