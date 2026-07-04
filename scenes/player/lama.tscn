@@ -81,7 +81,7 @@ floor_stop_on_slope = false
 script = ExtResource("1_ggtou")
 spit_scene = ExtResource("2_gmlin")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1172210751]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1172210751 groups=["lama"]]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_lo2sf")
 animation = &"die"

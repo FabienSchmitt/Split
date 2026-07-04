@@ -141,21 +141,21 @@ shape = SubResource("RectangleShape2D_tourist_center_up")
 
 [node name="Environment" type="Node" parent="." unique_id=1392962083]
 
-[node name="WallLeft" type="Area2D" parent="Environment" unique_id=101412576]
+[node name="WallLeft" type="Area2D" parent="Environment" unique_id=101412576 groups=["Wall"]]
 position = Vector2(-962, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/WallLeft" unique_id=761472731]
 position = Vector2(3, -5.5)
 shape = SubResource("RectangleShape2D_lo2sf")
 
-[node name="WallRight" type="Area2D" parent="Environment" unique_id=185674445]
+[node name="WallRight" type="Area2D" parent="Environment" unique_id=185674445 groups=["Wall"]]
 position = Vector2(960, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/WallRight" unique_id=1409025838]
 position = Vector2(3, -5.5)
 shape = SubResource("RectangleShape2D_lo2sf")
 
-[node name="WallUp" type="Area2D" parent="Environment" unique_id=1596785146]
+[node name="WallUp" type="Area2D" parent="Environment" unique_id=1596785146 groups=["Wall"]]
 position = Vector2(0, -538)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/WallUp" unique_id=648762603]

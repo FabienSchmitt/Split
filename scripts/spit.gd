@@ -31,9 +31,9 @@ func destroy() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	#if area.get_parent() != null && area.get_parent().is_in_group("tourist"):
-	#	area.get_parent().take_damage(1)
-	visible = false
-	impact_sound_2d.play()
-	await impact_sound_2d.finished
-	destroy()
+	if area.get_parent() != null && (area.get_parent().is_in_group("Tourist") || area.get_parent().is_in_group("Wall")):
+		visible = false
+		if area.get_parent().is_in_group("Tourist"):
+			impact_sound_2d.play()
+			await impact_sound_2d.finished
+		destroy()
