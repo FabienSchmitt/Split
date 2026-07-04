@@ -29,13 +29,14 @@ var idle_animation : String :
 
 var speed : float = 50
 var direction : Vector2
-var timer: Timer
+var timer: SceneTreeTimer
 
 func _ready() -> void:
 	direction = Vector2.LEFT if randi_range(0, 1) == 0  else Vector2.RIGHT
 	hit_component.is_hit.connect(_has_been_hit)
 	life_component.died.connect(_die)
-	var random_skin = randi_range(1, 2)
+	EventBus.game_is_over.connect(func(): state_machine.change_state(state_game_over))
+	var random_skin = randi_range(1, 4)
 	tourist_number = str(random_skin)
 	
 	_set_state_machine()
@@ -43,23 +44,14 @@ func _ready() -> void:
 func _set_state_machine() -> void :
 	state_machine.add_states(state_walk, enter_state_walk, Callable())
 	state_machine.add_states(state_photo, enter_state_photo, Callable())
-	state_machine.add_states(state_game_over, Callable(), Callable())
 	state_machine.add_states(state_die, enter_state_die, Callable())
+	state_machine.add_states(state_game_over, enter_state_game_over, Callable())
 	state_machine.set_initial_state(state_walk)
 	
 
 func _set_attack_timer() -> void : 
-	timer = get_node_or_null("AttackTimer")
-	if timer == null:
-		timer = Timer.new()
-		timer.name = "AttackTimer"
-		add_child(timer)
-
-	timer.wait_time = 5
-	timer.one_shot = false
-	timer.autostart = true
+	timer = get_tree().create_timer(5.0)
 	timer.timeout.connect(func(): state_machine.change_state(state_photo))
-	timer.start()
 
 
 func _physics_process(delta: float) -> void:
@@ -83,9 +75,15 @@ func state_walk():
 
 func enter_state_photo():
 	attack()
-
+	
 func state_photo():
-	pass
+	if sprite.modulate.a == 0:
+		queue_free()
+	
+	
+
+func enter_state_game_over():
+	sprite.play(idle_animation)
 
 func state_game_over():
 	pass
@@ -117,5 +115,10 @@ func attack() -> void:
 	EventBus.player_life_lost.emit(1)
 	var flash = flash_scene.instantiate()
 	get_tree().current_scene.add_child(flash)
+
+	var photo_tween = get_tree().create_tween()
+	photo_tween.tween_property(sprite, "modulate.a", 0.0, 1.0)
+	await photo_tween.finished
+
 	
 	

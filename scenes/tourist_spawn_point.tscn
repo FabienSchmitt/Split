@@ -7,5 +7,5 @@ script = ExtResource("1_aghea")
 
 [node name="PopTimer" type="Timer" parent="." unique_id=925535427]
 unique_name_in_owner = true
-wait_time = 2.0
+wait_time = 10.0
 autostart = true
