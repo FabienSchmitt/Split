@@ -1,11 +1,14 @@
 extends CanvasLayer
 
 @onready var color_rect: ColorRect = $ColorRect
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $FlashSound2D
+
 var timer: Timer
 var fade_step: float = 0.08
 var fade_interval: float = 0.05
 
 func _ready() -> void:
+	audio_stream_player_2d.play()
 	color_rect.modulate.a = 0.8
 	timer = get_node_or_null("FlashTimer")
 	if timer == null:
