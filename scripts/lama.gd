@@ -2,10 +2,11 @@ class_name Lama
 extends CharacterBody2D
 const SPEED = 450;
 
+@export var is_multiplayer := false
+
 @onready var ray_cast_2d_right: RayCast2D = $RayCast2D_Right
 @onready var ray_cast_2d_left: RayCast2D = $RayCast2D_Left
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var is_multiplayer := false
 
 @export var spit_scene: PackedScene
 
