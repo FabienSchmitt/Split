@@ -20,6 +20,7 @@ var lama_facing_direction: float = 1
 
 func _ready() -> void:
 	_multiplayer_handler = MultiplayerHandler.new(self)
+	EventBus.game_is_over.connect(die)
 
 
 func attack(spit_direction: Vector2) -> void:
@@ -70,3 +71,6 @@ func update_animation(direction: float) -> void:
 func change_direction(direction: float) -> void:
 	lama_facing_direction = direction
 	animated_sprite_2d.flip_h = false
+
+func die() -> void:
+	animated_sprite_2d.play("die")
