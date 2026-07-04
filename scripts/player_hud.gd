@@ -17,5 +17,11 @@ func add_score(scoreToAdd: int) -> void:
 	score_label.text = "Score: " + str(score)
 
 func lose_life(lifeToLose: int) -> void:
-	life -= lifeToLose
-	life_label.text = "Life: " + str(life)
+	if GameManager.is_game_over:
+		return
+	if life > 0:
+		life -= lifeToLose
+		life_label.text = "Life: " + str(life)
+	if life == 0:
+		GameManager.is_game_over = true
+		EventBus.show_game_over_screen.emit()

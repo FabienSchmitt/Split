@@ -26,5 +26,6 @@ visible = false
 layout_mode = 1
 
 [node name="GameOverScreen" parent="." unique_id=26548031 instance=ExtResource("4_js4l8")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1

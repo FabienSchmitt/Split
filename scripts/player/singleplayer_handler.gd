@@ -7,6 +7,9 @@ func _init(p: Lama) -> void:
 	_lama = p
 
 func handle_input() -> void :
+	if GameManager.is_game_over:
+		return
+
 	print("single player handler")
 	if Input.is_action_just_pressed("p1_shoot"):
 		_lama.attack(compute_spit_direction())

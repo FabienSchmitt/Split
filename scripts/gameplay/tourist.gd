@@ -50,6 +50,8 @@ func _die() -> void:
 	queue_free()
 
 func attack() -> void:
+	if GameManager.is_game_over:
+		return
 	EventBus.player_life_lost.emit(1)
 	var flash = flash_scene.instantiate()
 	get_tree().current_scene.add_child(flash)
