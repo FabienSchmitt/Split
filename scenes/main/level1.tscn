@@ -3,7 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://dlsjbkug74opl" path="res://scenes/player/lama.tscn" id="1_iuonh"]
 [ext_resource type="Texture2D" uid="uid://bywn8rp8ya0l5" path="res://resources/background-with-human.png" id="1_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://cbkbhmpeop5u5" path="res://scenes/ui/ui_manager.tscn" id="2_iuonh"]
+[ext_resource type="PackedScene" uid="uid://xks1oo2wbd47" path="res://scenes/tourist_spawn_point.tscn" id="3_g61pb"]
 [ext_resource type="PackedScene" uid="uid://kfklb8l882ft" path="res://scenes/player/playerHUD.tscn" id="4_l3cfh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_020gs"]
+size = Vector2(236, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo2sf"]
 size = Vector2(8, 1081)
@@ -20,6 +24,19 @@ texture = ExtResource("1_k2fmo")
 
 [node name="Player" parent="." unique_id=848951361 instance=ExtResource("1_iuonh")]
 position = Vector2(0, 462)
+
+[node name="Tourists" type="Node" parent="." unique_id=1215674656]
+
+[node name="Bottom_left" type="Node" parent="Tourists" unique_id=618453166]
+
+[node name="TouristSpawnPoint" parent="Tourists/Bottom_left" unique_id=1397573386 instance=ExtResource("3_g61pb")]
+position = Vector2(-820, 277)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Bottom_left" unique_id=461308304]
+position = Vector2(-828, 290)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tourists/Bottom_left/StaticBody2D" unique_id=1586785307]
+shape = SubResource("RectangleShape2D_020gs")
 
 [node name="Environment" type="Node" parent="." unique_id=1392962083]
 
