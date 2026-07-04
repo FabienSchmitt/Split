@@ -7,6 +7,13 @@ const ICONS := {
 	MultiplayerHandler.ACTION.AIM: preload("res://assets/icons/target.png")
 }
 
+const ICONS_HELPER := {
+	MultiplayerHandler.ACTION.CHARGE: preload("res://assets/icons/xbox_button_x_outline.png"),
+	MultiplayerHandler.ACTION.SHOOT: preload("res://assets/icons/xbox_button_a_outline.png"),
+	MultiplayerHandler.ACTION.MOVE: preload("res://assets/icons/xbox_stick_r.png"),
+	MultiplayerHandler.ACTION.AIM: preload("res://assets/icons/xbox_stick_l.png")
+}
+
 @onready var player1_container: HBoxContainer = %Player1IconContainer
 @onready var player2_container: HBoxContainer = %Player2IconContainer
 
