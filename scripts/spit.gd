@@ -3,13 +3,14 @@ extends Area2D
 const SPEED = 450.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var audiostream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var spit_sound_2d: AudioStreamPlayer2D = $SpitSound2D
+@onready var impact_sound_2d: AudioStreamPlayer2D = $ImpactSound2D
 
 var shooting_direction: Vector2 = Vector2.RIGHT
 var spit_in_motion: bool = true
 
 func _ready() -> void:
-	audiostream_player_2d.play()
+	spit_sound_2d.play()
 	self.area_entered.connect(_on_area_entered)
 
 func set_direction(direction: Vector2) -> void:
@@ -32,4 +33,5 @@ func destroy() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	#if area.get_parent() != null && area.get_parent().is_in_group("tourist"):
 	#	area.get_parent().take_damage(1)
+	impact_sound_2d.play()
 	destroy()
