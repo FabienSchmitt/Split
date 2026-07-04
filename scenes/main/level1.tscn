@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://xks1oo2wbd47" path="res://scenes/tourist_spawn_point.tscn" id="3_g61pb"]
 [ext_resource type="PackedScene" uid="uid://kfklb8l882ft" path="res://scenes/player/playerHUD.tscn" id="4_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://djkrgaur87bom" path="res://scenes/player/coffee_spawner.tscn" id="4_u0c75"]
+[ext_resource type="PackedScene" uid="uid://crkp1mcjjnj04" path="res://scenes/ui/multiplayer_hud.tscn" id="8_0tr4h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tourist_bottom_left"]
 size = Vector2(509, 11.5)
@@ -39,6 +40,7 @@ texture = ExtResource("1_k2fmo")
 
 [node name="Player" parent="." unique_id=848951361 instance=ExtResource("1_iuonh")]
 position = Vector2(0, 462)
+is_multiplayer = true
 
 [node name="CoffeeSpawner" parent="." unique_id=2033986346 instance=ExtResource("4_u0c75")]
 
@@ -48,7 +50,6 @@ position = Vector2(0, 462)
 
 [node name="TouristSpawnPoint" parent="Tourists/Left_bottom" unique_id=1397573386 instance=ExtResource("3_g61pb")]
 position = Vector2(-820, 277)
-tourists_max = 3
 
 [node name="PopTimer" parent="Tourists/Left_bottom/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 6.300000000000001
@@ -68,7 +69,6 @@ shape = SubResource("RectangleShape2D_tourist_bottom_left")
 position = Vector2(-353, -7)
 tourist_scale = Vector2(0.3, 0.3)
 tourist_speed = 10.0
-tourists_max = 2
 
 [node name="PopTimer" parent="Tourists/Left_up/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 9.7
@@ -88,7 +88,6 @@ shape = SubResource("RectangleShape2D_tourist_up_center")
 position = Vector2(314, 322)
 tourist_scale = Vector2(0.7, 0.7)
 tourist_speed = 8.0
-tourists_max = 4
 
 [node name="PopTimer" parent="Tourists/Right_bottom/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 9.7
@@ -108,7 +107,6 @@ shape = SubResource("RectangleShape2D_tourist_bottom_right")
 position = Vector2(626, -21)
 tourist_scale = Vector2(0.3, 0.3)
 tourist_speed = 8.0
-tourists_max = 2
 
 [node name="PopTimer" parent="Tourists/Right_up/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 5.0
@@ -128,7 +126,6 @@ shape = SubResource("RectangleShape2D_tourist_up_right")
 position = Vector2(114, -356)
 tourist_scale = Vector2(0.2, 0.2)
 tourist_speed = 12.0
-tourists_max = 1
 
 [node name="PopTimer" parent="Tourists/Center_up/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 5.0
@@ -172,6 +169,8 @@ shape = SubResource("RectangleShape2D_3gdql")
 [node name="ui_manager" parent="UI/CanvasLayer" unique_id=1183294465 instance=ExtResource("2_iuonh")]
 
 [node name="PlayerHud" parent="UI" unique_id=1671160535 instance=ExtResource("4_l3cfh")]
+
+[node name="MultiplayerHUD" parent="UI" unique_id=1016542195 instance=ExtResource("8_0tr4h")]
 
 [editable path="Tourists/Left_bottom/TouristSpawnPoint"]
 [editable path="Tourists/Left_up/TouristSpawnPoint"]

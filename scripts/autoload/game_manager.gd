@@ -7,6 +7,9 @@ var current_score: int = 0
 var current_life: int = 10
 var score_history: Array[int] = []
 
+func start_game():
+	EventBus.game_starts.emit()
+
 func reset_game() -> void:
 	reset_score()
 	reset_life()
@@ -54,3 +57,6 @@ func add_life(value: int) -> void:
 	if is_game_over:
 		return
 	current_life += value
+
+func change_player_control():
+	MultiplayerHandler.mix_controls()
