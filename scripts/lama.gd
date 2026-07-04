@@ -3,24 +3,28 @@ extends CharacterBody2D
 const SPEED = 450;
 
 @export var is_multiplayer := false
+@export var spit_scene: PackedScene
+@export var crachat_charging_speed := 100.0
 
 @onready var ray_cast_2d_right: RayCast2D = $RayCast2D_Right
 @onready var ray_cast_2d_left: RayCast2D = $RayCast2D_Left
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $WalkingSound2D
+@onready var walking_stream_player: AudioStreamPlayer2D = %WalkingSound2D
+@onready var crachat_stream_player: AudioStreamPlayer2D = %CrachatSound2D
+@onready var crachat_progress_bar: TextureProgressBar = %TextureProgressBar
 
-@export var spit_scene: PackedScene
 
 var current_spit = null
 var current_direction := 1.0
-var _multiplayer_handler: MultiplayerHandler
+var crachat_in_progress := false
+var crachat_progress: float = 0
 
 # Can be -1 (left) or 1 (right)
 var lama_facing_direction: float = 1
 
 func _ready() -> void:
-	_multiplayer_handler = MultiplayerHandler.new(self)
-
+	if !is_multiplayer:
+		MultiplayerHandler.set_single_player()
 
 func attack(spit_direction: Vector2) -> void:
 	if GameManager.is_game_over:
@@ -32,12 +36,23 @@ func attack(spit_direction: Vector2) -> void:
 	spit.global_position.y -= 10 #to center it with the player sprite
 	spit.set_direction(spit_direction)
 	current_spit = spit
+	reset_charging()
+
+func _process(delta: float) -> void:
+	if GameManager.is_game_over:
+		return
+
+	if crachat_in_progress:
+		crachat_progress += delta * crachat_charging_speed 
+
+	crachat_progress_bar.value = crachat_progress
+
+	MultiplayerHandler.handle_inputs(self)
+
 
 func _physics_process(delta: float) -> void:
 	if GameManager.is_game_over:
 		return
-	
-	_multiplayer_handler.handle_inputs()
 	if current_direction != 0 && current_direction != lama_facing_direction:
 		change_direction(current_direction)
 
@@ -51,13 +66,13 @@ func _physics_process(delta: float) -> void:
 	if current_direction:
 		velocity.x = current_direction * SPEED
 		update_animation(current_direction)
-		if(audio_stream_player_2d.playing == false):
-			audio_stream_player_2d.play()
+		if(walking_stream_player.playing == false):
+			walking_stream_player.play()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite_2d.play("idle")
-		if(audio_stream_player_2d.playing == true):
-			audio_stream_player_2d.stop()
+		if(walking_stream_player.playing == true):
+			walking_stream_player.stop()
 
 	move_and_slide()
 
@@ -70,3 +85,16 @@ func update_animation(direction: float) -> void:
 func change_direction(direction: float) -> void:
 	lama_facing_direction = direction
 	animated_sprite_2d.flip_h = false
+
+func start_charging() -> void:
+	crachat_in_progress = true
+	# crachat_stream_player.play()
+
+func stop_charging() -> void:
+	crachat_in_progress = false
+	# crachat_stream_player.stream_paused = true
+
+func reset_charging() -> void:
+	crachat_in_progress = false
+	crachat_progress = 0
+	# crachat_stream_player.stop()

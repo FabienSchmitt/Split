@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bf3e0s1qcjffn" path="res://scenes/player/spit.tscn" id="2_gmlin"]
 [ext_resource type="Texture2D" uid="uid://bff3rpmv7j7bf" path="res://assets/sprites/lama-center-left-right.png" id="3_gmlin"]
 [ext_resource type="AudioStream" uid="uid://b75560trmoreg" path="res://assets/sound/lama-walk.mp3" id="4_jjym0"]
+[ext_resource type="Texture2D" uid="uid://catfxpremoqlj" path="res://assets/sprites/progress_bar/pan_flute_progress.png" id="5_5komd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lvxji"]
 atlas = ExtResource("3_gmlin")
@@ -85,5 +86,18 @@ target_position = Vector2(-50, 0)
 collide_with_areas = true
 
 [node name="WalkingSound2D" type="AudioStreamPlayer2D" parent="." unique_id=2005590336]
+unique_name_in_owner = true
 stream = ExtResource("4_jjym0")
 bus = &"Sounds"
+
+[node name="ChargeSound2D" type="AudioStreamPlayer2D" parent="." unique_id=314511190]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=743205876]
+unique_name_in_owner = true
+offset_left = 15.0
+offset_top = -121.0
+offset_right = 165.0
+offset_bottom = 29.0
+fill_mode = 1
+texture_progress = ExtResource("5_5komd")
+metadata/_edit_use_anchors_ = true
