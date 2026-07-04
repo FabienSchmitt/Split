@@ -52,7 +52,11 @@ func _set_state_machine() -> void :
 
 func _set_attack_timer() -> void : 
 	timer = get_tree().create_timer(5.0)
-	timer.timeout.connect(func(): state_machine.change_state(state_photo))
+	timer.timeout.connect(func():
+		if GameManager.is_game_over:
+			return
+		state_machine.change_state(state_photo)
+	)
 
 
 func _physics_process(delta: float) -> void:
@@ -120,7 +124,7 @@ func _die() -> void:
 func attack() -> void:
 	sprite.play(photo_animation)
 	await sprite.animation_finished
-	if life_component.is_dead:
+	if life_component.is_dead or GameManager.is_game_over:
 		return
 
 	EventBus.player_life_lost.emit(1)
