@@ -20,7 +20,6 @@ texture = ExtResource("1_s67ge")
 
 [node name="Player" parent="." unique_id=848951361 instance=ExtResource("2_6sny6")]
 position = Vector2(0, 462)
-is_multiplayer = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=543200367]
 

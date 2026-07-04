@@ -6,7 +6,7 @@ enum ACTION {SHOOT, MOVE, AIM, LOAD}
 enum PLAYER {ONE, TWO}
 
 var _lama: Lama
-
+var _is_multiplayer := false
 var  player_actions: Dictionary[ACTION, PLAYER] = {
 	ACTION.SHOOT:  PLAYER.TWO,
 	ACTION.MOVE: PLAYER.ONE,
@@ -16,6 +16,10 @@ var  player_actions: Dictionary[ACTION, PLAYER] = {
 
 func _init(l: Lama) -> void:
 	_lama = l
+	_is_multiplayer = l.is_multiplayer
+	if !_is_multiplayer:
+		for pa_key in player_actions.keys():
+			player_actions.set(pa_key, PLAYER.ONE)
 
 func handle_inputs() -> void :
 	if Input.is_action_just_pressed("p1_shoot") && player_actions.get(ACTION.SHOOT) == PLAYER.ONE || \
