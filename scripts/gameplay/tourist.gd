@@ -37,7 +37,7 @@ func _ready() -> void:
 	hit_component.is_hit.connect(_has_been_hit)
 	life_component.died.connect(_die)
 	EventBus.game_is_over.connect(func(): state_machine.change_state(state_game_over))
-	var random_skin = randi_range(1, 4)
+	var random_skin = randi_range(1, 3)
 	tourist_number = str(random_skin)
 	
 	_set_state_machine()
