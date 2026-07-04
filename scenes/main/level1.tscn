@@ -7,8 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://xks1oo2wbd47" path="res://scenes/tourist_spawn_point.tscn" id="3_g61pb"]
 [ext_resource type="PackedScene" uid="uid://kfklb8l882ft" path="res://scenes/player/playerHUD.tscn" id="4_l3cfh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_020gs"]
-size = Vector2(513, 11.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tourist_bottom_left"]
+size = Vector2(509, 11.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tourist_up_center"]
+size = Vector2(217, 8.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tourist_bottom_right"]
+size = Vector2(938, 12.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tourist_up_right"]
+size = Vector2(386, 12.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tourist_center_up"]
+size = Vector2(119, 9.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo2sf"]
 size = Vector2(8, 1081)
@@ -29,62 +41,103 @@ position = Vector2(0, 462)
 
 [node name="Tourists" type="Node" parent="." unique_id=1215674656]
 
-[node name="Bottom_left" type="Node" parent="Tourists" unique_id=618453166]
+[node name="Left_bottom" type="Node" parent="Tourists" unique_id=618453166]
 
-[node name="TouristSpawnPoint" parent="Tourists/Bottom_left" unique_id=1397573386 instance=ExtResource("3_g61pb")]
+[node name="TouristSpawnPoint" parent="Tourists/Left_bottom" unique_id=1397573386 instance=ExtResource("3_g61pb")]
 position = Vector2(-820, 277)
 tourists_max = 3
 
-[node name="PopTimer" parent="Tourists/Bottom_left/TouristSpawnPoint" index="0" unique_id=925535427]
+[node name="PopTimer" parent="Tourists/Left_bottom/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 6.300000000000001
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Bottom_left" unique_id=461308304]
+[node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Left_bottom" unique_id=461308304]
 position = Vector2(-828, 290)
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tourists/Bottom_left/StaticBody2D" unique_id=1586785307]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tourists/Left_bottom/StaticBody2D" unique_id=1586785307]
 position = Vector2(150.5, 2.5)
-shape = SubResource("RectangleShape2D_020gs")
+shape = SubResource("RectangleShape2D_tourist_bottom_left")
 
-[node name="Up_center" type="Node" parent="Tourists" unique_id=2109934254]
+[node name="Left_up" type="Node" parent="Tourists" unique_id=2109934254]
 
-[node name="TouristSpawnPoint" parent="Tourists/Up_center" unique_id=1130136873 instance=ExtResource("3_g61pb")]
+[node name="TouristSpawnPoint" parent="Tourists/Left_up" unique_id=1130136873 instance=ExtResource("3_g61pb")]
 position = Vector2(-353, -7)
 tourist_scale = Vector2(0.3, 0.3)
 tourist_speed = 10.0
 tourists_max = 2
 
-[node name="PopTimer" parent="Tourists/Up_center/TouristSpawnPoint" index="0" unique_id=925535427]
+[node name="PopTimer" parent="Tourists/Left_up/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 9.7
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Up_center" unique_id=1633312398]
+[node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Left_up" unique_id=1633312398]
 position = Vector2(-291, 10)
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tourists/Up_center/StaticBody2D" unique_id=1874468306]
-position = Vector2(-3, -1)
-shape = SubResource("RectangleShape2D_020gs")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tourists/Left_up/StaticBody2D" unique_id=1874468306]
+position = Vector2(0.5, -2.375)
+shape = SubResource("RectangleShape2D_tourist_up_center")
 
-[node name="Up_right" type="Node" parent="Tourists" unique_id=1096205953]
+[node name="Right_bottom" type="Node" parent="Tourists" unique_id=1096205953]
 
-[node name="TouristSpawnPoint" parent="Tourists/Up_right" unique_id=58321123 instance=ExtResource("3_g61pb")]
-position = Vector2(446, 156)
+[node name="TouristSpawnPoint" parent="Tourists/Right_bottom" unique_id=58321123 instance=ExtResource("3_g61pb")]
+position = Vector2(314, 322)
 tourist_scale = Vector2(0.7, 0.7)
 tourist_speed = 8.0
+tourists_max = 4
 
-[node name="PopTimer" parent="Tourists/Up_right/TouristSpawnPoint" index="0" unique_id=925535427]
+[node name="PopTimer" parent="Tourists/Right_bottom/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 9.7
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Up_right" unique_id=2087806492]
-position = Vector2(826, 171)
+[node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Right_bottom" unique_id=2087806492]
+position = Vector2(706, 340)
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tourists/Up_right/StaticBody2D" unique_id=1427067190]
-position = Vector2(-145.5, -1)
-shape = SubResource("RectangleShape2D_020gs")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tourists/Right_bottom/StaticBody2D" unique_id=1427067190]
+position = Vector2(-272, -0.375)
+shape = SubResource("RectangleShape2D_tourist_bottom_right")
+
+[node name="Right_up" type="Node" parent="Tourists" unique_id=641090225]
+
+[node name="TouristSpawnPoint" parent="Tourists/Right_up" unique_id=469750052 instance=ExtResource("3_g61pb")]
+position = Vector2(626, -21)
+tourist_scale = Vector2(0.3, 0.3)
+tourist_speed = 8.0
+tourists_max = 2
+
+[node name="PopTimer" parent="Tourists/Right_up/TouristSpawnPoint" index="0" unique_id=925535427]
+wait_time = 5.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Right_up" unique_id=2010438865]
+position = Vector2(826, -7)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tourists/Right_up/StaticBody2D" unique_id=1491486643]
+position = Vector2(-167, -0.375)
+shape = SubResource("RectangleShape2D_tourist_up_right")
+
+[node name="Center_up" type="Node" parent="Tourists" unique_id=410981214]
+
+[node name="TouristSpawnPoint" parent="Tourists/Center_up" unique_id=165316542 instance=ExtResource("3_g61pb")]
+position = Vector2(114, -356)
+tourist_scale = Vector2(0.2, 0.2)
+tourist_speed = 12.0
+tourists_max = 1
+
+[node name="PopTimer" parent="Tourists/Center_up/TouristSpawnPoint" index="0" unique_id=925535427]
+wait_time = 5.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Center_up" unique_id=1478560664]
+position = Vector2(143, -347)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tourists/Center_up/StaticBody2D" unique_id=1604948811]
+position = Vector2(2.5, -1.875)
+shape = SubResource("RectangleShape2D_tourist_center_up")
 
 [node name="Environment" type="Node" parent="." unique_id=1392962083]
 
@@ -114,13 +167,11 @@ shape = SubResource("RectangleShape2D_3gdql")
 [node name="CanvasLayer" type="CanvasLayer" parent="UI" unique_id=543200367]
 
 [node name="ui_manager" parent="UI/CanvasLayer" unique_id=1183294465 instance=ExtResource("2_iuonh")]
-offset_left = 1.0
-offset_top = -6.0
-offset_right = 1.0
-offset_bottom = -6.0
 
 [node name="PlayerHud" parent="UI" unique_id=1671160535 instance=ExtResource("4_l3cfh")]
 
-[editable path="Tourists/Bottom_left/TouristSpawnPoint"]
-[editable path="Tourists/Up_center/TouristSpawnPoint"]
-[editable path="Tourists/Up_right/TouristSpawnPoint"]
+[editable path="Tourists/Left_bottom/TouristSpawnPoint"]
+[editable path="Tourists/Left_up/TouristSpawnPoint"]
+[editable path="Tourists/Right_bottom/TouristSpawnPoint"]
+[editable path="Tourists/Right_up/TouristSpawnPoint"]
+[editable path="Tourists/Center_up/TouristSpawnPoint"]
