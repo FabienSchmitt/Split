@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlsjbkug74opl"]
 
-[ext_resource type="Script" uid="uid://dssnisjsncl6b" path="res://scripts/player.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://cg6emrpe80f32" path="res://scripts/lama.gd" id="1_ggtou"]
 [ext_resource type="PackedScene" uid="uid://bf3e0s1qcjffn" path="res://scenes/player/spit.tscn" id="2_gmlin"]
 [ext_resource type="Texture2D" uid="uid://bff3rpmv7j7bf" path="res://assets/sprites/lama-center-left-right.png" id="3_gmlin"]
 
@@ -61,7 +61,9 @@ animations = [{
 radius = 19.94
 
 [node name="Player" type="CharacterBody2D" unique_id=1880450837]
-script = ExtResource("1_dovo2")
+motion_mode = 1
+floor_stop_on_slope = false
+script = ExtResource("1_ggtou")
 spit_scene = ExtResource("2_gmlin")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1172210751]

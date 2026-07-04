@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d2xjipgen38g2"]
 
-[ext_resource type="PackedScene" uid="uid://dlsjbkug74opl" path="res://scenes/player/player.tscn" id="1_iuonh"]
+[ext_resource type="PackedScene" uid="uid://dlsjbkug74opl" path="res://scenes/player/lama.tscn" id="1_iuonh"]
 [ext_resource type="Texture2D" uid="uid://bywn8rp8ya0l5" path="res://resources/background-with-human.png" id="1_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://cbkbhmpeop5u5" path="res://scenes/ui/ui_manager.tscn" id="2_iuonh"]
 
