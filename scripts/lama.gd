@@ -10,8 +10,9 @@ const SPEED = 450;
 @onready var ray_cast_2d_left: RayCast2D = $RayCast2D_Left
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var walking_stream_player: AudioStreamPlayer2D = %WalkingSound2D
-@onready var crachat_stream_player: AudioStreamPlayer2D = %CrachatSound2D
+@onready var charge_stream_player: AudioStreamPlayer2D = %ChargeSound2D
 @onready var crachat_progress_bar: TextureProgressBar = %TextureProgressBar
+@onready var aiming: Node2D = $Aiming
 
 
 var current_spit = null
@@ -33,6 +34,7 @@ func attack(spit_direction: Vector2) -> void:
 		return
 
 	var spit = spit_scene.instantiate()
+	spit.spit_force = crachat_progress
 	get_tree().current_scene.add_child(spit)
 	spit.global_position = global_position
 	spit.global_position.y -= 10 #to center it with the player sprite
@@ -45,7 +47,8 @@ func _process(delta: float) -> void:
 		return
 
 	if crachat_in_progress:
-		crachat_progress += delta * crachat_charging_speed 
+		crachat_progress = clamp(crachat_progress + delta * crachat_charging_speed, 0, 100)
+	
 
 	crachat_progress_bar.value = crachat_progress
 
@@ -59,11 +62,15 @@ func _physics_process(delta: float) -> void:
 		change_direction(current_direction)
 
 	if ray_cast_2d_right.is_colliding():
-		if current_direction > 0:
-			current_direction = 0
+		var collider = ray_cast_2d_right.get_collider()
+		if collider != null and collider.is_in_group("Wall"):
+			if current_direction > 0:
+				current_direction = 0
 	if ray_cast_2d_left.is_colliding():
-		if current_direction < 0:
-			current_direction = 0
+		var collider = ray_cast_2d_left.get_collider()
+		if collider != null and collider.is_in_group("Wall"):
+			if current_direction < 0:
+				current_direction = 0
 
 	if current_direction:
 		velocity.x = current_direction * SPEED
@@ -90,16 +97,23 @@ func change_direction(direction: float) -> void:
 
 func start_charging() -> void:
 	crachat_in_progress = true
-	# crachat_stream_player.play()
+	charge_stream_player.play()
 
 func stop_charging() -> void:
 	crachat_in_progress = false
-	# crachat_stream_player.stream_paused = true
+	charge_stream_player.stream_paused = true
 
 func reset_charging() -> void:
 	crachat_in_progress = false
 	crachat_progress = 0
-	# crachat_stream_player.stop()
+	charge_stream_player.stop()
 
 func die() -> void:
 	animated_sprite_2d.play("die")
+
+func set_aiming_direction(direction: Vector2) -> void:
+	if direction == Vector2.ZERO:
+		aiming.visible = false
+		return
+	aiming.visible = true
+	aiming.rotation = direction.normalized().angle()

@@ -191,7 +191,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.9137255, 0.9137255, 0.59607846, 1)
 theme_override_font_sizes/font_size = 40
-text = "Escape mass tourism in the Andes"
+text = "Fight back mass tourism in the Andes"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="MainMenuRoot" unique_id=1077636743]

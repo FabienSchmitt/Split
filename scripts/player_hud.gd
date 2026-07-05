@@ -8,6 +8,7 @@ func _ready() -> void:
 	_update_life_label()
 	EventBus.player_score_added.connect(_on_score_added)
 	EventBus.player_life_lost.connect(lose_life)
+	EventBus.player_life_gained.connect(gain_life)
 
 func _on_score_added(score_to_add: int) -> void:
 	GameManager.add_score(score_to_add)
@@ -23,4 +24,10 @@ func lose_life(lifeToLose: int) -> void:
 	if GameManager.is_game_over:
 		return
 	GameManager.lose_life(lifeToLose)
+	_update_life_label()
+
+func gain_life(lifeToGain: int) -> void:
+	if GameManager.is_game_over:
+		return
+	GameManager.add_life(lifeToGain)
 	_update_life_label()

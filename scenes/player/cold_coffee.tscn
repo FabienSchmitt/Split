@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cuf20mwjbsltj"]
+
+[ext_resource type="Script" uid="uid://dl8tg8tg446g3" path="res://scripts/cold_coffee.gd" id="1_hait1"]
+[ext_resource type="Texture2D" uid="uid://bjmdwmboaf14e" path="res://assets/sprites/Spritesheet_Mugs_Decorated.png" id="1_xy8bo"]
+[ext_resource type="AudioStream" uid="uid://q2wdu71n1tir" path="res://assets/sound/power_up.wav" id="3_6v6mf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hait1"]
+atlas = ExtResource("1_xy8bo")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v6mf"]
+atlas = ExtResource("1_xy8bo")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lo2sf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hait1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v6mf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lo2sf"]
+
+[node name="ColdCoffee" type="Area2D" unique_id=184626894]
+scale = Vector2(2, 2)
+script = ExtResource("1_hait1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=538021520]
+position = Vector2(-4.08, -2.865)
+sprite_frames = SubResource("SpriteFrames_lo2sf")
+autoplay = "default"
+frame_progress = 0.9800509
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1315310091]
+shape = SubResource("CircleShape2D_lo2sf")
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=728955029]
+stream = ExtResource("3_6v6mf")
