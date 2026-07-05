@@ -765,4 +765,7 @@ position = Vector2(0, -150)
 sprite_frames = SubResource("SpriteFrames_4ovnp")
 animation = &"2_walk"
 
+[node name="PopUpSound" type="AudioStreamPlayer2D" parent="." unique_id=1755793105]
+unique_name_in_owner = true
+
 [editable path="HitComponent"]

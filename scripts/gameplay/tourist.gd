@@ -10,8 +10,19 @@ extends CharacterBody2D
 @onready var ray_cast_left : RayCast2D= %RayCastLeft
 @export var flash_scene: PackedScene
 @export var score_display_scene: PackedScene
+@export var popup_sounds: Array[AudioStream] = [
+	preload("res://assets/sound/tourists/beubeubeu.wav"),
+	preload("res://assets/sound/tourists/cheese.wav"),
+	preload("res://assets/sound/tourists/gipiliti.wav"),
+	preload("res://assets/sound/tourists/hola.wav"),
+	preload("res://assets/sound/tourists/lama.wav"),
+	preload("res://assets/sound/tourists/my-camera.wav"),
+	preload("res://assets/sound/tourists/ooooooooh.wav"),
+	preload("res://assets/sound/tourists/papalapapa.wav"),
+	preload("res://assets/sound/tourists/prophecy.wav")
+]
 @onready var sprite : AnimatedSprite2D = %AnimatedSprite2D
-
+@onready var popup_sound : AudioStreamPlayer2D = %PopUpSound
 
 var tourist_number := "1"
 var state_machine: CallableStateMachine = CallableStateMachine.new()
@@ -40,7 +51,11 @@ func _ready() -> void:
 	life_component.died.connect(_die)
 	var random_skin = randi_range(1, 3)
 	tourist_number = str(random_skin)
-	
+
+	if popup_sounds.size() > 0:
+		popup_sound.stream = popup_sounds[randi() % popup_sounds.size()]
+	popup_sound.play()
+
 	_set_state_machine()
 
 func _set_state_machine() -> void :
