@@ -68,7 +68,8 @@ layout_mode = 2
 [node name="Control" type="Control" parent="CanvasLayer/Player1Container/HBoxContainer" unique_id=551691669]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Player1Container/HBoxContainer/Control" unique_id=1652970450]
+[node name="Player1ShuffleContainer" type="PanelContainer" parent="CanvasLayer/Player1Container/HBoxContainer/Control" unique_id=1652970450]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -78,21 +79,21 @@ offset_right = 74.0
 offset_bottom = 50.5
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Player1Container/HBoxContainer/Control/PanelContainer" unique_id=899671552]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Player1Container/HBoxContainer/Control/Player1ShuffleContainer" unique_id=899671552]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Player1Container/HBoxContainer/Control/PanelContainer/MarginContainer" unique_id=645909594]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Player1Container/HBoxContainer/Control/Player1ShuffleContainer/MarginContainer" unique_id=645909594]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Player1Container/HBoxContainer/Control/PanelContainer/MarginContainer/VBoxContainer" unique_id=486997494]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Player1Container/HBoxContainer/Control/Player1ShuffleContainer/MarginContainer/VBoxContainer" unique_id=486997494]
 layout_mode = 2
 texture = ExtResource("2_roies")
 
-[node name="Timer1Label" type="Label" parent="CanvasLayer/Player1Container/HBoxContainer/Control/PanelContainer/MarginContainer/VBoxContainer" unique_id=969543283]
+[node name="Timer1Label" type="Label" parent="CanvasLayer/Player1Container/HBoxContainer/Control/Player1ShuffleContainer/MarginContainer/VBoxContainer" unique_id=969543283]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00:00:00"
@@ -137,7 +138,8 @@ layout_mode = 2
 custom_minimum_size = Vector2(77, 64)
 layout_mode = 2
 
-[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Player2Container/HBoxContainer/Control" unique_id=1905642099]
+[node name="Player2ShuffleContainer" type="PanelContainer" parent="CanvasLayer/Player2Container/HBoxContainer/Control" unique_id=1905642099]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -150,21 +152,21 @@ offset_bottom = 50.5
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Player2Container/HBoxContainer/Control/PanelContainer3" unique_id=1840926377]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Player2Container/HBoxContainer/Control/Player2ShuffleContainer" unique_id=1840926377]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Player2Container/HBoxContainer/Control/PanelContainer3/MarginContainer" unique_id=1054826153]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Player2Container/HBoxContainer/Control/Player2ShuffleContainer/MarginContainer" unique_id=1054826153]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Player2Container/HBoxContainer/Control/PanelContainer3/MarginContainer/VBoxContainer" unique_id=1320700821]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Player2Container/HBoxContainer/Control/Player2ShuffleContainer/MarginContainer/VBoxContainer" unique_id=1320700821]
 layout_mode = 2
 texture = ExtResource("2_roies")
 
-[node name="Timer2Label" type="Label" parent="CanvasLayer/Player2Container/HBoxContainer/Control/PanelContainer3/MarginContainer/VBoxContainer" unique_id=873462821]
+[node name="Timer2Label" type="Label" parent="CanvasLayer/Player2Container/HBoxContainer/Control/Player2ShuffleContainer/MarginContainer/VBoxContainer" unique_id=873462821]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00:00:00"
@@ -210,3 +212,29 @@ text = "Player 2"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+
+[node name="ChangeContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1398556507]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -40.0
+offset_right = 39.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ChangeContainer" unique_id=220894356]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/ChangeContainer/MarginContainer" unique_id=665278580]
+layout_mode = 2
+theme = ExtResource("6_xhtnr")
+theme_type_variation = &"Title"
+text = "CHANGE"
