@@ -37,19 +37,6 @@ func cry_randomly() -> void:
 		cry_randomly()
 	)
 
-func attack(spit_direction: Vector2) -> void:
-	if GameManager.is_game_over:
-		return
-
-	var spit = spit_scene.instantiate()
-	spit.spit_force = crachat_progress
-	get_tree().current_scene.add_child(spit)
-	spit.global_position = global_position
-	spit.global_position.y -= 10 #to center it with the player sprite
-	spit.set_direction(spit_direction)
-	current_spit = spit
-	reset_charging()
-
 func _process(delta: float) -> void:
 	if GameManager.is_game_over:
 		return
@@ -103,12 +90,12 @@ func attack(spit_direction: Vector2) -> void:
 	spit.spit_force = spit_progress
 	get_tree().current_scene.add_child(spit)
 	spit.global_position = global_position
-	spit.scale *= (spit_progress / 100) * spit_max_scale  
+	if spit_progress > 1:
+		spit.scale *= (spit_progress / 100) * spit_max_scale  
 	spit.global_position.y -= 10 #to center it with the player sprite
 	spit.set_direction(spit_direction)
 	current_spit = spit
 	reset_charging()
-
 
 func update_animation(direction: float) -> void:
 	if direction < 0:

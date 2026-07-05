@@ -68,6 +68,7 @@ shape = SubResource("RectangleShape2D_tourist_bottom_left")
 position = Vector2(-353, -7)
 tourist_scale = Vector2(0.3, 0.3)
 tourist_speed = 10.0
+tourists_max = 2
 
 [node name="PopTimer" parent="Tourists/Left_up/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 9.7
@@ -87,6 +88,7 @@ shape = SubResource("RectangleShape2D_tourist_up_center")
 position = Vector2(314, 322)
 tourist_scale = Vector2(0.7, 0.7)
 tourist_speed = 8.0
+tourists_max = 4
 
 [node name="PopTimer" parent="Tourists/Right_bottom/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 9.7
@@ -106,6 +108,7 @@ shape = SubResource("RectangleShape2D_tourist_bottom_right")
 position = Vector2(626, -21)
 tourist_scale = Vector2(0.3, 0.3)
 tourist_speed = 8.0
+tourists_max = 3
 
 [node name="PopTimer" parent="Tourists/Right_up/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 5.0
@@ -125,6 +128,7 @@ shape = SubResource("RectangleShape2D_tourist_up_right")
 position = Vector2(114, -356)
 tourist_scale = Vector2(0.2, 0.2)
 tourist_speed = 12.0
+tourists_max = 1
 
 [node name="PopTimer" parent="Tourists/Center_up/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 5.0
