@@ -2,12 +2,6 @@ class_name Tourist
 extends CharacterBody2D
 
 @export var sprite_image_path : String
-
-
-@onready var hit_component : HitComponent = %HitComponent
-@onready var life_component : LifeComponent = %LifeComponent
-@onready var ray_cast_right := %RayCastRight
-@onready var ray_cast_left : RayCast2D= %RayCastLeft
 @export var flash_scene: PackedScene
 @export var score_display_scene: PackedScene
 @export var popup_sounds: Array[AudioStream] = [
@@ -21,6 +15,14 @@ extends CharacterBody2D
 	preload("res://assets/sound/tourists/papalapapa.wav"),
 	preload("res://assets/sound/tourists/prophecy.wav")
 ]
+
+
+@onready var hit_component : HitComponent = %HitComponent
+@onready var life_component : LifeComponent = %LifeComponent
+@onready var ray_cast_right := %RayCastRight
+@onready var ray_cast_left : RayCast2D= %RayCastLeft
+@onready var red_circle: Sprite2D = %RedCircle
+@onready var yellow_circle: Sprite2D = %YellowCircle
 @onready var sprite : AnimatedSprite2D = %AnimatedSprite2D
 @onready var popup_sound : AudioStreamPlayer2D = %PopUpSound
 
@@ -55,6 +57,7 @@ func _ready() -> void:
 	if popup_sounds.size() > 0:
 		popup_sound.stream = popup_sounds[randi() % popup_sounds.size()]
 	popup_sound.play()
+	play_popup_animation()
 
 	_set_state_machine()
 
@@ -71,8 +74,10 @@ func _set_attack_timer() -> void :
 	timer = get_tree().create_timer(3.0)
 	timer.timeout.connect(func(): 
 		sprite.modulate = Color("#ff00ff")
+		show_red_circle()
 		var tween = create_tween()
 		tween.tween_property(sprite, "modulate", Color.WHITE, 2.0)
+		
 		timer2 = get_tree().create_timer(2.0)
 		timer2.timeout.connect(func(): should_attack = true))
 	
@@ -170,3 +175,18 @@ func disable_collisions() -> void:
 
 func _die() -> void:
 	state_machine.change_state(state_die)
+
+
+func show_red_circle():	
+	var circle_tween = create_tween()
+	red_circle.show()
+	circle_tween.tween_property(red_circle, "scale", Vector2(0.1, 0.1), 0.5)
+	await circle_tween.finished
+	red_circle.hide()
+
+func play_popup_animation():
+	var animation_tween = create_tween()
+	animation_tween.parallel().tween_property(yellow_circle, "scale", Vector2(0.5, 0.5), 0.5)
+	animation_tween.parallel().tween_property(yellow_circle, "modulate.a", 0, 0.5)
+	await animation_tween.finished
+	yellow_circle.hide()
