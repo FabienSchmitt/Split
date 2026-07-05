@@ -10,6 +10,7 @@ var is_multiplayer := true
 
 func start_game():
 	EventBus.game_starts.emit()
+	AudioManager.change_music(preload("res://assets/music/main-theme.wav"))
 
 func reset_game() -> void:
 	reset_score()
