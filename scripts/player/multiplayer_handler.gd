@@ -7,16 +7,20 @@ var  player_actions: Dictionary[ACTION, PLAYER] = {
 	ACTION.SHOOT:  PLAYER.TWO,
 	ACTION.MOVE: PLAYER.ONE,
 	ACTION.AIM: PLAYER.TWO,
-	ACTION.CHARGE: PLAYER.ONE,
-	ACTION.SHUFFLE: PLAYER.UNDEFINED
+	ACTION.CHARGE: PLAYER.ONE
 }
+
+var shuffle_action_player := PLAYER.UNDEFINED
 
 var is_singleplayer := false
 var mix_timer: SceneTreeTimer
+var is_changing := false
 
 func _ready() -> void:
 	EventBus.game_starts.connect(plan_next_mix)
 	EventBus.warning_played.connect(mix_controls)
+	shuffle_action_player = randi_range(PLAYER.ONE, PLAYER.TWO)
+
 
 func set_single_player():
 	is_singleplayer = true
@@ -51,9 +55,12 @@ func handle_inputs(lama: Lama) -> void :
 		lama.stop_charging()
 
 	# Shuffle
-	if Input.is_action_just_pressed("p1_shuffle") && player_actions.get(ACTION.SHUFFLE) == PLAYER.ONE || \
-		Input.is_action_just_pressed("p2_shuffle") && player_actions.get(ACTION.SHUFFLE) == PLAYER.TWO:
-		pass # need to shuffle and stuff.
+	if (Input.is_action_just_pressed("p1_shuffle") && shuffle_action_player == PLAYER.ONE || \
+		Input.is_action_just_pressed("p2_shuffle") && shuffle_action_player == PLAYER.TWO) && \
+		!is_changing:
+
+		is_changing = true
+		send_mix_warning()
 
 func compute_spit_direction(lama: Lama) -> Vector2:
 
@@ -74,15 +81,27 @@ func get_aiming_direction() -> Vector2:
 
 func mix_controls():
 	if is_singleplayer: return
+
 	for pa_key in player_actions.keys():
 		var player = randi_range(PLAYER.ONE, PLAYER.TWO)
 		player_actions.set(pa_key, player)
 	
+	# check shuffle 
+	var player_1_controls = player_actions.values().filter(func(x) -> bool : return x == PLAYER.ONE)
+	if player_1_controls.size() < 2:
+		shuffle_action_player = PLAYER.ONE
+	elif player_1_controls.size() > 2 : 
+		shuffle_action_player = PLAYER.TWO
+	else :
+		shuffle_action_player = randi_range(PLAYER.ONE, PLAYER.TWO)
+
 	EventBus.controls_mixed.emit()
+	is_changing = false
+	
 	plan_next_mix()
 
 func plan_next_mix():
-	mix_timer = get_tree().create_timer(30)
+	mix_timer = get_tree().create_timer(20)
 	mix_timer.timeout.connect(func() : send_mix_warning())
 
 func send_mix_warning():

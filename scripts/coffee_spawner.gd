@@ -3,7 +3,8 @@ extends Node2D
 const COFFEE_SIDE_MARGIN: float = 96.0
 const COFFEE_SAFE_MARGIN_FROM_PLAYER: float = 220.0
 const COFFEE_SPAWN_Y: float = 482.0
-const COFFEE_SPAWN_INTERVAL: float = 30.0
+const COFFEE_SPAWN_INTERVAL_MIN: int = 3
+const COFFEE_SPAWN_INTERVAL_MAX: int = 8
 
 @onready var wall_left: Area2D = $"../Environment/WallLeft"
 @onready var wall_right: Area2D = $"../Environment/WallRight"
@@ -22,7 +23,7 @@ func spawn_cold_coffee() -> void:
 	coffee.position = Vector2(get_random_coffee_x(), COFFEE_SPAWN_Y)
 
 func schedule_next_coffee_spawn() -> void:
-	get_tree().create_timer(COFFEE_SPAWN_INTERVAL).timeout.connect(func (): 
+	get_tree().create_timer(randi_range(COFFEE_SPAWN_INTERVAL_MIN, COFFEE_SPAWN_INTERVAL_MAX)).timeout.connect(func (): 
 		spawn_cold_coffee()
 		schedule_next_coffee_spawn()
 	)

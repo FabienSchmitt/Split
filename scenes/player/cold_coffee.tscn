@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dl8tg8tg446g3" path="res://scripts/cold_coffee.gd" id="1_hait1"]
 [ext_resource type="Texture2D" uid="uid://bjmdwmboaf14e" path="res://assets/sprites/Spritesheet_Mugs_Decorated.png" id="1_xy8bo"]
-[ext_resource type="AudioStream" uid="uid://q2wdu71n1tir" path="res://assets/sound/power_up.wav" id="3_6v6mf"]
+[ext_resource type="AudioStream" uid="uid://dn00rr25pulhi" path="res://assets/sound/drink-coffee.mp3" id="3_6v6mf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hait1"]
 atlas = ExtResource("1_xy8bo")
@@ -42,4 +42,7 @@ frame_progress = 0.9800509
 shape = SubResource("CircleShape2D_lo2sf")
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=728955029]
+position = Vector2(0, -1)
 stream = ExtResource("3_6v6mf")
+volume_db = 9.0
+bus = &"Sounds"

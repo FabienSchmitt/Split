@@ -6,6 +6,7 @@ var is_game_over = false
 var current_score: int = 0
 var current_life: int = 10
 var score_history: Array[int] = []
+var is_multiplayer := true
 
 func start_game():
 	EventBus.game_starts.emit()

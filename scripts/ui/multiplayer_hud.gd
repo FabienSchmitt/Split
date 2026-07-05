@@ -18,12 +18,14 @@ const ICONS_HELPER := {
 @onready var player2_container: HBoxContainer = %Player2IconContainer
 @onready var player1_timer: Label = %Timer1Label
 @onready var player2_timer: Label = %Timer2Label
-@onready var audio_player: AudioStreamPlayer2D = %ChangeAudioStreamPlayer2D
+@onready var change_audio_player: AudioStreamPlayer2D = %ChangeAudioStreamPlayer2D
 @onready var warning_audio_player: AudioStreamPlayer2D = %WarningAudioStreamPlayer2D
 
+@onready var player1_shuffle_indicator: Panel = %Player1ShufflePanel
+@onready var player2_shuffle_indicator: Panel = %Player2ShufflePanel
 
 func _ready():
-	compute_icons_position()
+	compute_icons_position(false)
 	EventBus.controls_mixed.connect(compute_icons_position)
 	EventBus.send_controls_mixed_warning.connect(play_warning)
 
@@ -34,11 +36,13 @@ func _process(delta: float) -> void:
 		player2_timer.text = "%.1f" % MultiplayerHandler.mix_timer.time_left
 	
 
-func compute_icons_position():
+func compute_icons_position(with_sound : bool = true):
 	cleanup_icons()
 	
 	print("MultiplayerHandler : ", MultiplayerHandler.player_actions)
-	
+	if with_sound:
+		change_audio_player.play()
+
 	for icon_key in ICONS.keys():
 		var player = MultiplayerHandler.player_actions.get(icon_key)
 		var row_container = create_icon_row(ICONS.get(icon_key), ICONS_HELPER.get(icon_key))
@@ -46,6 +50,9 @@ func compute_icons_position():
 			player1_container.add_child(row_container)
 		else:
 			player2_container.add_child(row_container)
+		
+		player1_shuffle_indicator.visible = MultiplayerHandler.shuffle_action_player == MultiplayerHandler.PLAYER.ONE 
+		player2_shuffle_indicator.visible = MultiplayerHandler.shuffle_action_player == MultiplayerHandler.PLAYER.TWO 
 
 func create_icon_row(main_icon_texture: Resource, helper_icon_texture: Resource) -> VBoxContainer:
 	var row_container = VBoxContainer.new()
@@ -60,7 +67,6 @@ func create_icon_row(main_icon_texture: Resource, helper_icon_texture: Resource)
 	return row_container
 
 func create_empty_icon_container(r: Resource) -> TextureRect:
-	audio_player.play()
 	var icon_container = TextureRect.new()
 	icon_container.texture = r
 	icon_container.modulate = Color(1,1,1,1)

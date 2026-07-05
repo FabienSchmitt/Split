@@ -6,6 +6,7 @@ extends Control
 @onready var quit_button: Button = %QuitButton
 @onready var settings_screen : SettingsScreen = %SettingsScreen
 @onready var main_menu_root : Control = %MainMenuRoot
+@onready var toggle_multiplayer_button : CheckButton = $MainMenuRoot/ToggleMultiplayerButton
 
 
 const START_GAME_PATH : String = "res://scenes/main/level1.tscn"
@@ -34,4 +35,8 @@ func _ready() -> void:
 
 	quit_button.pressed.connect(func():
 		get_tree().quit()
+	)
+	toggle_multiplayer_button.button_pressed = GameManager.is_multiplayer
+	toggle_multiplayer_button.toggled.connect(func(toggled_on):
+		GameManager.is_multiplayer = toggled_on
 	)
