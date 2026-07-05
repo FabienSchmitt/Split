@@ -3,7 +3,8 @@ extends CharacterBody2D
 const SPEED = 450;
 
 @export var spit_scene: PackedScene
-@export var crachat_charging_speed := 100.0
+@export var spit_charging_speed := 100.0
+@export var spit_max_scale = 5
 
 @onready var ray_cast_2d_right: RayCast2D = $RayCast2D_Right
 @onready var ray_cast_2d_left: RayCast2D = $RayCast2D_Left
@@ -12,14 +13,14 @@ const SPEED = 450;
 @onready var charge_stream_player: AudioStreamPlayer2D = %ChargeSound2D
 @onready var die_stream_player: AudioStreamPlayer2D = %DieSound2D
 @onready var random_cry_stream_player: AudioStreamPlayer2D = %RandomCrySound2D
-@onready var crachat_progress_bar: TextureProgressBar = %TextureProgressBar
+@onready var spit_progress_bar: TextureProgressBar = %TextureProgressBar
 @onready var aiming: Node2D = $Aiming
 
 
 var current_spit = null
 var current_direction := 1.0
-var crachat_in_progress := false
-var crachat_progress: float = 0
+var spit_in_progress := false
+var spit_progress: float = 0
 
 # Can be -1 (left) or 1 (right)
 var lama_facing_direction: float = 1
@@ -53,11 +54,11 @@ func _process(delta: float) -> void:
 	if GameManager.is_game_over:
 		return
 
-	if crachat_in_progress:
-		crachat_progress = clamp(crachat_progress + delta * crachat_charging_speed, 0, 100)
+	if spit_in_progress:
+		spit_progress = clamp(spit_progress + delta * spit_charging_speed, 0, 100)
 	
 
-	crachat_progress_bar.value = crachat_progress
+	spit_progress_bar.value = spit_progress
 
 	MultiplayerHandler.handle_inputs(self)
 
@@ -92,6 +93,23 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+
+
+func attack(spit_direction: Vector2) -> void:
+	if GameManager.is_game_over:
+		return
+
+	var spit := spit_scene.instantiate()
+	spit.spit_force = spit_progress
+	get_tree().current_scene.add_child(spit)
+	spit.global_position = global_position
+	spit.scale *= (spit_progress / 100) * spit_max_scale  
+	spit.global_position.y -= 10 #to center it with the player sprite
+	spit.set_direction(spit_direction)
+	current_spit = spit
+	reset_charging()
+
+
 func update_animation(direction: float) -> void:
 	if direction < 0:
 		animated_sprite_2d.play("left_move")
@@ -103,16 +121,16 @@ func change_direction(direction: float) -> void:
 	animated_sprite_2d.flip_h = false
 
 func start_charging() -> void:
-	crachat_in_progress = true
+	spit_in_progress = true
 	charge_stream_player.play()
 
 func stop_charging() -> void:
-	crachat_in_progress = false
+	spit_in_progress = false
 	charge_stream_player.stream_paused = true
 
 func reset_charging() -> void:
-	crachat_in_progress = false
-	crachat_progress = 0
+	spit_in_progress = false
+	spit_progress = 0
 	charge_stream_player.stop()
 
 func die() -> void:
