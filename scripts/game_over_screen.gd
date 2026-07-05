@@ -14,4 +14,4 @@ func _process(_delta) -> void:
 		GameManager.reset_game()
 		Engine.time_scale = 1.0
 		self.hide()
-		get_tree().get_tree().call_deferred("change_scene_to_file", "res://scenes/main/level1.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/main/level1.tscn")
