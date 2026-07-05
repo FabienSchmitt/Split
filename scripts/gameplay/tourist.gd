@@ -186,7 +186,10 @@ func show_red_circle():
 
 func play_popup_animation():
 	var animation_tween = create_tween()
+	var original_modulate = yellow_circle.modulate
+	var modified_modulate = original_modulate
+	modified_modulate.a = 0
 	animation_tween.parallel().tween_property(yellow_circle, "scale", Vector2(0.5, 0.5), 0.5)
-	animation_tween.parallel().tween_property(yellow_circle, "modulate.a", 0, 0.5)
+	animation_tween.parallel().tween_property(yellow_circle, "modulate", modified_modulate, 0.5)
 	await animation_tween.finished
 	yellow_circle.hide()

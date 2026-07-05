@@ -50,6 +50,7 @@ position = Vector2(0, 462)
 
 [node name="TouristSpawnPoint" parent="Tourists/Left_bottom" unique_id=1397573386 instance=ExtResource("3_g61pb")]
 position = Vector2(-820, 277)
+tourists_max = 2
 
 [node name="PopTimer" parent="Tourists/Left_bottom/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 6.300000000000001
@@ -89,7 +90,7 @@ shape = SubResource("RectangleShape2D_tourist_up_center")
 position = Vector2(314, 322)
 tourist_scale = Vector2(0.7, 0.7)
 tourist_speed = 8.0
-tourists_max = 4
+tourists_max = 3
 
 [node name="PopTimer" parent="Tourists/Right_bottom/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 9.7
