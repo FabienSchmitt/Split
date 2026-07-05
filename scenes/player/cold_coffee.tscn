@@ -42,4 +42,7 @@ frame_progress = 0.9800509
 shape = SubResource("CircleShape2D_lo2sf")
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=728955029]
+position = Vector2(0, -1)
 stream = ExtResource("3_6v6mf")
+volume_db = 9.0
+bus = &"Sounds"
