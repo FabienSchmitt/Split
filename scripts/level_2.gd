@@ -5,9 +5,6 @@ extends Node2D
 @onready var TSP_Right_bottom: Node2D = $Tourists/Right_bottom/TouristSpawnPoint
 @onready var TSP_Right_up: Node2D = $Tourists/Right_up/TouristSpawnPoint
 @onready var TSP_Center_up: Node2D = $Tourists/Center_up/TouristSpawnPoint
-@onready var levelUpSound: AudioStreamPlayer2D = $LevelUpSound
-
-var level_change_requested := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,13 +16,4 @@ func _ready() -> void:
 	get_tree().create_timer(18.0).timeout.connect(func (): TSP_Center_up.enable_spawning())
 
 	GameManager.start_game()
-
-	EventBus.player_score_added.connect(func (score_to_add: int): CheckAndChangeLevel())
 	
-func CheckAndChangeLevel():
-	if level_change_requested:
-		return
-	if GameManager.current_score >= 10000:
-		level_change_requested = true
-		levelUpSound.play()
-		get_tree().call_deferred("change_scene_to_file", "res://scenes/main/level2.tscn")

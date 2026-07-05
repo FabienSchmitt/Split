@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://csotm80jh48d0" path="res://scenes/gameplay/score_display.tscn" id="3_dh84t"]
 [ext_resource type="Texture2D" uid="uid://cxf06icrofsfo" path="res://assets/sprites/tourists/tourist-1-dead.png" id="4_6y0xg"]
 [ext_resource type="PackedScene" uid="uid://n4yiq57nljii" path="res://scenes/gameplay/life_component.tscn" id="4_bf2ew"]
+[ext_resource type="Texture2D" uid="uid://cb0ignco8ss7p" path="res://assets/icons/yellow_circle.png" id="4_kh13j"]
 [ext_resource type="Texture2D" uid="uid://c8q6v5elock4y" path="res://assets/sprites/tourists/tourist-1-photo.png" id="5_6y0xg"]
 [ext_resource type="Texture2D" uid="uid://bgu8sk53hcuqt" path="res://assets/sprites/tourists/tourist-1-idle.png" id="5_q8qit"]
 [ext_resource type="Texture2D" uid="uid://bmk55e8vcrne4" path="res://assets/sprites/tourists/tourist-1-walk.png" id="8_p0v4k"]
@@ -21,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://d2w72u04vbql0" path="res://assets/sprites/tourists/tourist-4-idle.png" id="18_cfdlv"]
 [ext_resource type="Texture2D" uid="uid://p8souoybo052" path="res://assets/sprites/tourists/tourist-4-fish.png" id="19_dh84t"]
 [ext_resource type="Texture2D" uid="uid://bntcicgehqdwq" path="res://assets/sprites/tourists/tourist-4-walk.png" id="20_cfdlv"]
+[ext_resource type="Texture2D" uid="uid://dxc8nrv351bh" path="res://assets/icons/circle.png" id="22_o1dwo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cfdlv"]
 radius = 40.0
@@ -728,6 +730,13 @@ script = ExtResource("1_uge42")
 flash_scene = ExtResource("2_6y0xg")
 score_display_scene = ExtResource("3_dh84t")
 
+[node name="YellowCircle" type="Sprite2D" parent="." unique_id=540662206]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.518)
+position = Vector2(3, -86)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_kh13j")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1939846530]
 unique_name_in_owner = true
 position = Vector2(0, -40)
@@ -764,5 +773,15 @@ unique_name_in_owner = true
 position = Vector2(0, -150)
 sprite_frames = SubResource("SpriteFrames_4ovnp")
 animation = &"2_walk"
+
+[node name="PopUpSound" type="AudioStreamPlayer2D" parent="." unique_id=1755793105]
+unique_name_in_owner = true
+
+[node name="RedCircle" type="Sprite2D" parent="." unique_id=1285790468]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-10, -99)
+scale = Vector2(2, 2)
+texture = ExtResource("22_o1dwo")
 
 [editable path="HitComponent"]

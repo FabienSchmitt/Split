@@ -23,12 +23,15 @@ const ICONS_HELPER := {
 
 @onready var player1_shuffle_indicator: Panel = %Player1ShufflePanel
 @onready var player2_shuffle_indicator: Panel = %Player2ShufflePanel
+@onready var player1_shuffle_panel_container: PanelContainer = %Player1ShuffleContainer
+@onready var player2_shuffle_panel_container: PanelContainer = %Player2ShuffleContainer
+@onready var change_container: PanelContainer = %ChangeContainer
 
 func _ready():
 	compute_icons_position(false)
 	EventBus.controls_mixed.connect(compute_icons_position)
 	EventBus.send_controls_mixed_warning.connect(play_warning)
-
+	change_container.visible = false
 
 func _process(delta: float) -> void:
 	if MultiplayerHandler.mix_timer:
@@ -42,7 +45,8 @@ func compute_icons_position(with_sound : bool = true):
 	print("MultiplayerHandler : ", MultiplayerHandler.player_actions)
 	if with_sound:
 		change_audio_player.play()
-
+		display_change_panel()
+	
 	for icon_key in ICONS.keys():
 		var player = MultiplayerHandler.player_actions.get(icon_key)
 		var row_container = create_icon_row(ICONS.get(icon_key), ICONS_HELPER.get(icon_key))
@@ -80,6 +84,20 @@ func cleanup_icons():
 		c.queue_free()
 
 func play_warning():
+	blink(player1_shuffle_panel_container)
+	blink(player2_shuffle_panel_container)
 	warning_audio_player.play()
 	await warning_audio_player.finished
 	EventBus.warning_played.emit()
+
+func blink(p: PanelContainer):
+	var tween = create_tween()
+	tween.set_loops(3)
+	var original_modulate = p.modulate
+	tween.tween_property(p, "modulate", Color(1, 1, 0, 1), 0.5)
+	tween.tween_property(p, "modulate", original_modulate, 0.5)
+
+func display_change_panel():
+	var tween = create_tween()
+	tween.tween_property(change_container, "visible", true, 0.5)
+	tween.tween_property(change_container, "visible", false, 0.5)
