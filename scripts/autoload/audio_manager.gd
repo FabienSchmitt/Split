@@ -4,6 +4,7 @@ var audio_player : AudioStreamPlayer2D = AudioStreamPlayer2D.new()
 func _ready() -> void:
 	audio_player.stream = preload("res://assets/music/main-theme.wav")
 	audio_player.bus = "Music"
+	audio_player.volume_db = -6.0
 	add_child(audio_player)
 
 	# Keep music playing while the scene tree is paused

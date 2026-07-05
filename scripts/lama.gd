@@ -11,6 +11,7 @@ const SPEED = 450;
 @onready var walking_stream_player: AudioStreamPlayer2D = %WalkingSound2D
 @onready var charge_stream_player: AudioStreamPlayer2D = %ChargeSound2D
 @onready var die_stream_player: AudioStreamPlayer2D = %DieSound2D
+@onready var random_cry_stream_player: AudioStreamPlayer2D = %RandomCrySound2D
 @onready var crachat_progress_bar: TextureProgressBar = %TextureProgressBar
 @onready var aiming: Node2D = $Aiming
 
@@ -27,7 +28,13 @@ func _ready() -> void:
 	if !GameManager.is_multiplayer:
 		MultiplayerHandler.set_single_player()
 	EventBus.game_is_over.connect(die)
+	cry_randomly()
 
+func cry_randomly() -> void:
+	get_tree().create_timer(randi_range(3, 10)).timeout.connect(func ():
+		random_cry_stream_player.play()
+		cry_randomly()
+	)
 
 func attack(spit_direction: Vector2) -> void:
 	if GameManager.is_game_over:

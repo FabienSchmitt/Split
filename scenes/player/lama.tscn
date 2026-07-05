@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://6mxahsbggkev" path="res://assets/sound/loading-spit.wav" id="6_pdp2a"]
 [ext_resource type="Texture2D" uid="uid://dgcx57ddvnq6s" path="res://assets/icons/target.png" id="7_myiiu"]
 [ext_resource type="AudioStream" uid="uid://cf1462ve8lxcn" path="res://assets/sound/game-over.mp3" id="7_ru6yf"]
+[ext_resource type="AudioStream" uid="uid://7rup2en0cyrx" path="res://assets/sound/lama-sound.wav" id="8_ysmgu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flvbj"]
 atlas = ExtResource("3_5komd")
@@ -114,6 +115,10 @@ stream = ExtResource("6_pdp2a")
 unique_name_in_owner = true
 stream = ExtResource("7_ru6yf")
 bus = &"Sounds"
+
+[node name="RandomCrySound2D" type="AudioStreamPlayer2D" parent="." unique_id=1751091942]
+unique_name_in_owner = true
+stream = ExtResource("8_ysmgu")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=743205876]
 unique_name_in_owner = true
