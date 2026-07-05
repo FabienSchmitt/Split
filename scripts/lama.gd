@@ -2,7 +2,6 @@ class_name Lama
 extends CharacterBody2D
 const SPEED = 450;
 
-@export var is_multiplayer := false
 @export var spit_scene: PackedScene
 @export var crachat_charging_speed := 100.0
 
@@ -24,7 +23,7 @@ var crachat_progress: float = 0
 var lama_facing_direction: float = 1
 
 func _ready() -> void:
-	if !is_multiplayer:
+	if !GameManager.is_multiplayer:
 		MultiplayerHandler.set_single_player()
 	EventBus.game_is_over.connect(die)
 

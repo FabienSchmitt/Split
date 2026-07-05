@@ -209,9 +209,39 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.8350697, 0.74945265, 0.56499094, 1)
 theme_override_font_sizes/font_size = 32
-text = "This is a two-player game 
-(play with 2 XBOX controllers)"
+text = "Play with XBOX controllers"
 horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MainMenuRoot" unique_id=1260056646]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = 189.0
+offset_right = 279.0
+offset_bottom = 378.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8350697, 0.74945265, 0.56499094, 1)
+theme_override_font_sizes/font_size = 32
+text = "Multiplayer mode enabled:"
+
+[node name="ToggleMultiplayerButton" type="CheckButton" parent="MainMenuRoot" unique_id=134005969]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 217.0
+offset_top = -338.0
+offset_right = 261.0
+offset_bottom = -314.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="SettingsScreen" parent="." unique_id=1440927587 instance=ExtResource("3_dxph1")]
 unique_name_in_owner = true
