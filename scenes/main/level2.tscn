@@ -11,13 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://coo28dvu0wqy4" path="res://assets/sprites/igloo.png" id="9_uptrk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tourist_bottom_left"]
-size = Vector2(509, 11.5)
+size = Vector2(327, 11.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tourist_up_center"]
 size = Vector2(217, 8.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tourist_bottom_right"]
-size = Vector2(938, 12.75)
+size = Vector2(590, 12.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tourist_up_right"]
 size = Vector2(386, 12.75)
@@ -49,24 +49,26 @@ position = Vector2(0, 462)
 [node name="Left_bottom" type="Node" parent="Tourists" unique_id=618453166]
 
 [node name="TouristSpawnPoint" parent="Tourists/Left_bottom" unique_id=1397573386 instance=ExtResource("3_g61pb")]
-position = Vector2(-820, 277)
+position = Vector2(-713, 217)
+tourist_scale = Vector2(0.5, 0.5)
+tourists_max = 8
 
 [node name="PopTimer" parent="Tourists/Left_bottom/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 6.300000000000001
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Left_bottom" unique_id=461308304]
-position = Vector2(-828, 290)
+position = Vector2(-830, 232)
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tourists/Left_bottom/StaticBody2D" unique_id=1586785307]
-position = Vector2(150.5, 2.5)
+position = Vector2(59.5, 2.5)
 shape = SubResource("RectangleShape2D_tourist_bottom_left")
 
 [node name="Left_up" type="Node" parent="Tourists" unique_id=2109934254]
 
 [node name="TouristSpawnPoint" parent="Tourists/Left_up" unique_id=1130136873 instance=ExtResource("3_g61pb")]
-position = Vector2(-353, -7)
+position = Vector2(-32, 205)
 tourist_scale = Vector2(0.3, 0.3)
 tourist_speed = 10.0
 tourists_max = 2
@@ -75,7 +77,7 @@ tourists_max = 2
 wait_time = 9.7
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Left_up" unique_id=1633312398]
-position = Vector2(-291, 10)
+position = Vector2(45, 218)
 collision_layer = 2
 collision_mask = 0
 
@@ -86,7 +88,7 @@ shape = SubResource("RectangleShape2D_tourist_up_center")
 [node name="Right_bottom" type="Node" parent="Tourists" unique_id=1096205953]
 
 [node name="TouristSpawnPoint" parent="Tourists/Right_bottom" unique_id=58321123 instance=ExtResource("3_g61pb")]
-position = Vector2(314, 322)
+position = Vector2(260, 320)
 tourist_scale = Vector2(0.7, 0.7)
 tourist_speed = 8.0
 tourists_max = 4
@@ -100,22 +102,22 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tourists/Right_bottom/StaticBody2D" unique_id=1427067190]
-position = Vector2(-272, -0.375)
+position = Vector2(-215, -0.375)
 shape = SubResource("RectangleShape2D_tourist_bottom_right")
 
 [node name="Right_up" type="Node" parent="Tourists" unique_id=641090225]
 
 [node name="TouristSpawnPoint" parent="Tourists/Right_up" unique_id=469750052 instance=ExtResource("3_g61pb")]
-position = Vector2(626, -21)
-tourist_scale = Vector2(0.3, 0.3)
+position = Vector2(381, -8)
+tourist_scale = Vector2(0.2, 0.2)
 tourist_speed = 8.0
-tourists_max = 3
+tourists_max = 1
 
 [node name="PopTimer" parent="Tourists/Right_up/TouristSpawnPoint" index="0" unique_id=925535427]
 wait_time = 5.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Right_up" unique_id=2010438865]
-position = Vector2(826, -7)
+position = Vector2(647, 3)
 collision_layer = 2
 collision_mask = 0
 
@@ -126,7 +128,7 @@ shape = SubResource("RectangleShape2D_tourist_up_right")
 [node name="Center_up" type="Node" parent="Tourists" unique_id=410981214]
 
 [node name="TouristSpawnPoint" parent="Tourists/Center_up" unique_id=165316542 instance=ExtResource("3_g61pb")]
-position = Vector2(114, -356)
+position = Vector2(-559, -320)
 tourist_scale = Vector2(0.2, 0.2)
 tourist_speed = 12.0
 tourists_max = 1
@@ -135,7 +137,7 @@ tourists_max = 1
 wait_time = 5.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Tourists/Center_up" unique_id=1478560664]
-position = Vector2(143, -347)
+position = Vector2(-522, -310)
 collision_layer = 2
 collision_mask = 0
 

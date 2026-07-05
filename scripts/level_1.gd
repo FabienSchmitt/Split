@@ -25,7 +25,7 @@ func _ready() -> void:
 func CheckAndChangeLevel():
 	if level_change_requested:
 		return
-	if GameManager.current_score >= 10:
+	if GameManager.current_score >= 10000:
 		level_change_requested = true
 		levelUpSound.play()
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/main/level2.tscn")
