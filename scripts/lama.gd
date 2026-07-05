@@ -10,6 +10,7 @@ const SPEED = 450;
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var walking_stream_player: AudioStreamPlayer2D = %WalkingSound2D
 @onready var charge_stream_player: AudioStreamPlayer2D = %ChargeSound2D
+@onready var die_stream_player: AudioStreamPlayer2D = %DieSound2D
 @onready var crachat_progress_bar: TextureProgressBar = %TextureProgressBar
 @onready var aiming: Node2D = $Aiming
 
@@ -109,6 +110,7 @@ func reset_charging() -> void:
 
 func die() -> void:
 	animated_sprite_2d.play("die")
+	die_stream_player.play()
 
 func set_aiming_direction(direction: Vector2) -> void:
 	if direction == Vector2.ZERO:
